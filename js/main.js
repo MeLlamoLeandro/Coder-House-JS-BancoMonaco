@@ -60,28 +60,26 @@ const calcularPagos = (monto,plazo,tna)=>{
     //Calculo la cuota pura a descomponer entre capital/interes con la constante cuotaPura
     const cuotaPura = monto * (tMensual * Math.pow(1 + tMensual, plazo)) / (Math.pow(1 + tMensual, plazo) - 1);
     //variables locales que uso en la funcion
-    let saldoDeuda;
+    /*let saldoDeuda;
     let interes;
     let capital;
     let cuotaTotal;
-
+*/
     // Calculo los pagos mensuales desde el mes 1 al seleccionado con un bucle.
     for (let i = 1; i <= plazo; i++) {    
-        //segun investigue, para calcular la primera cuota, el Saldo de Deuda es el equivalente al Monto solicitado
-        //como en el simulador del banco ICBC y del BNA online.
+        // segun investigue, para calcular la primera cuota, el Saldo de Deuda es el equivalente al Monto solicitado
+        // como en el simulador del banco ICBC y del BNA online.
         if (i === 1) {
             saldoDeuda = monto;
         }else{
             saldoDeuda = saldoDeuda - capital;
         }
-
-        //Calculo el resto de los componentes de la cuota
-        interes = saldoDeuda * tMensual;
-        capital = cuotaPura - interes;
-        const pagoIva = iva * interes;
-        cuotaTotal = capital + interes + pagoIva;
-        
-        // Almaceno los valores en array de pagos, redondeando los resultados a dos decimales
+        // Invoco funciones de calulos auxiliares
+        calculaInteres(saldoDeuda, tMensual);
+        calculaCapital(cuotaPura, interes);
+        calculaIva(iva, interes);
+        calculaCuotaTotal(capital, interes, pagoIva);
+        // Almaceno los valores en el array "pagos", redondeando los resultados a dos decimales
         pagos.push({
             mes: i,
             saldoDeuda: saldoDeuda.toFixed(2),
@@ -102,11 +100,31 @@ const calcularPagos = (monto,plazo,tna)=>{
         console.log("Cuota Total: $" + pagos[i-1].cuotaTotal);
         console.log("------------------------------------------");
     }
+    alert("La simulación ha terminado, se han calculado los pagos mensuales y el resultado se encuentra en la consola.\nPresione Ctrl + Shift + i para visualizar los resultados.");
 }
+//Declaro funciones de calculo de los componentes de la cuota.
+const calculaInteres = (saldoDeuda , tMensual)=>{
+    interes = saldoDeuda * tMensual;
+}
+
+const calculaCapital = (cuotaPura, interes)=>{
+    capital = cuotaPura - interes;
+}
+
+const calculaIva = (iva, interes)=>{
+    pagoIva = iva * interes;
+} 
+
+const calculaCuotaTotal = (capital, interes, pagoIva)=>{
+    cuotaTotal = capital + interes + pagoIva;
+}
+//------------------------------------------------------------------------
 
 //Invoco la funcion calcularPagos
 calcularPagos(monto,condiciones[n].plazo,condiciones[n].tna);
 /*
+
+
 busqueda = prompt("Desea buscar el detalle de un mes particular? (S/N)");
 if (busqueda.upCase() == 'S') {
     bMes = parseInt(prompt("Por favor, ingrese el mes que desea buscar."));
