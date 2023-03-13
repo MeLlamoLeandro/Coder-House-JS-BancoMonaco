@@ -59,8 +59,8 @@ switch (inicio) {
         //Calculo la tasa mensual - declaro e inicio la constante de tasa mensual
         const tMensual = tna / 100 / 12;
         //Calculo la cuota pura a descomponer entre capital/interes con la constante cuotaPura
-        const cuotaPura = (monto * (tMensual * Math.pow(1 + tMensual, plazo))) / (Math.pow(1 + tMensual, plazo) - 1);
-
+        const cuotaPura = (monto * (tMensual * Math.pow(1 + tMensual, plazo))) / (Math.pow(1 + tMensual, plazo) - 1);   
+    
         // Calculo los pagos mensuales desde el mes 1 al seleccionado con un bucle.
         for (let i = 1; i <= plazo; i++) {
           // segun investigue, para calcular la primera cuota, el Saldo de Deuda es el equivalente al Monto solicitado
@@ -70,30 +70,42 @@ switch (inicio) {
           } else {
             saldoDeuda = saldoDeuda - capital;
           }
+        
+          //inicializo la fecha
+          const fecha = new Date();
+          // Sumo el número de meses al mes actual
+          fecha.setMonth(fecha.getMonth() + i);
+          // Guardo el mes y año en formato "mm/yyyy"
+          const fechaCuota = `${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
+
           // Invoco funciones de calulos auxiliares
           calculaInteres(saldoDeuda, tMensual);
           calculaCapital(cuotaPura, interes);
           calculaIva(iva, interes);
           calculaCuotaTotal(capital, interes, pagoIva);
+                    
           // Almaceno los valores en el array "pagos", redondeando los resultados a dos decimales
           pagos.push({
-            mes: i,
+            cuotaN: i,
+            vtoCuota: fechaCuota,
             saldoDeuda: saldoDeuda.toFixed(2),
             cuotaPura: cuotaPura.toFixed(2),
             capital: capital.toFixed(2),
             intereses: interes.toFixed(2),
             iva: pagoIva.toFixed(2),
-            cuotaTotal: cuotaTotal.toFixed(2),
+            cuotaTotal: cuotaTotal.toFixed(2)
           });
 
           // Muestro el resultado de cada cuota en consola redondeando a dos decimales
-          console.log("Mes: " + pagos[i - 1].mes);
+          console.log("Cuota N°: " + pagos[i - 1].cuotaN);
+          console.log("Vencimiento: " + pagos[i - 1].vtoCuota);
           console.log("Saldo Deuda: $" + pagos[i - 1].saldoDeuda);
           console.log("Cuota pura: $" + pagos[i - 1].cuotaPura);
           console.log("Capital: $" + pagos[i - 1].capital);
           console.log("Intereses: $" + pagos[i - 1].intereses);
           console.log("IVA: $" + pagos[i - 1].iva);
           console.log("Cuota Total: $" + pagos[i - 1].cuotaTotal);
+          
           console.log("------------------------------------------");
         }
         alert(
