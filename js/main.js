@@ -1,5 +1,5 @@
 let inicio = confirm(
-  "Bienvenido a Banco Mónaco!!!\n\nEste simulador le permitira calcular la serie de pagos a realizar\ncuando solicita un prestamos a tasa fija con sistema de amortización francés.\n\nPara continuar presione Aceptar.\nPara salir de la simulación  presione Cancelar."
+  "Bienvenido a Banco Mónaco!!!\n\nEste simulador le permitira calcular la serie de pagos a realizar\ncuando solicita un prestamo a tasa fija con sistema de amortización francés.\n\nPara continuar presione Aceptar.\nPara salir de la simulación  presione Cancelar."
 );
 // Inicio la simulacion si el usuario confirma al Aceptar, sino no ejecuta la simulacion
 switch (inicio) {
@@ -165,6 +165,7 @@ switch (inicio) {
       }
       //funcion para buscar el detalle de un mes por Nro de cuota.
       const buscarCuota = (x) => {
+        console.log(pagos[x]);
         alert(
           `Cuota N°: ${pagos[x].cuotaN}\n
               Vencimiento: ${pagos[x].vtoCuota}\n
@@ -175,7 +176,6 @@ switch (inicio) {
               IVA: $${pagos[x].iva}\n
               Cuota Total: $${pagos[x].cuotaTotal}`
         );
-        console.log(pagos[x]);
       };
       //invoco la funcion Buscar Cuota
       buscarCuota(bCuota);
@@ -197,6 +197,7 @@ switch (inicio) {
         //funcion para buscar el detalle de un mes por Fecha de Vencimiento utilizando el METODO FILTER
         const buscarFecha = (bfecha) => {
           const filtroFecha = pagos.filter((pagos) => pagos.vtoCuota == bFecha);
+          console.log(filtroFecha);
           alert(
             `Cuota N°: ${filtroFecha[0].cuotaN}\n
               Vencimiento: ${filtroFecha[0].vtoCuota}\n
@@ -207,7 +208,6 @@ switch (inicio) {
               IVA: $${filtroFecha[0].iva}\n
               Cuota Total: $${filtroFecha[0].cuotaTotal}`
           );
-          console.log(filtroFecha);
         };
         //si existe invoco la funcion de busqueda por fecha en arryay pagos
         buscarFecha();
