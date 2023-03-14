@@ -75,8 +75,8 @@ switch (inicio) {
           const fecha = new Date();
           // Sumo el número de meses al mes actual
           fecha.setMonth(fecha.getMonth() + i);
-          // Guardo el mes y año en formato "mm/yyyy"
-          const fechaCuota = `${fecha.getMonth() + 1}/${fecha.getFullYear()}`;
+          // Guardo el mes y año en formato "mm-yyyy"
+          const fechaCuota = `${fecha.getMonth() + 1}-${fecha.getFullYear()}`;
 
           // Invoco funciones de calulos auxiliares
           calculaInteres(saldoDeuda, tMensual);
@@ -105,7 +105,6 @@ switch (inicio) {
           console.log("Intereses: $" + pagos[i - 1].intereses);
           console.log("IVA: $" + pagos[i - 1].iva);
           console.log("Cuota Total: $" + pagos[i - 1].cuotaTotal);
-          
           console.log("------------------------------------------");
         }
         alert(
@@ -128,20 +127,20 @@ switch (inicio) {
       const calculaCuotaTotal = (capital, interes, pagoIva) => {
         cuotaTotal = capital + interes + pagoIva;
       };
-      //------------------------------------------------------------------------
 
+      //------------------------------------------------------------------------
       //Invoco la funcion principal calcularPagos
       calcularPagos(monto, condiciones[n].plazo, condiciones[n].tna);
       
-      //propongo una nueva funcionalidad de busqueda.
-      busqueda = prompt("Desea buscar el detalle de una cuota en particular? (S/N)");
-      if (busqueda.toUpperCase() == 'S') {
+      //------------------------------------------------------------------------
+      //propongo una nueva funcionalidad de busqueda. Por Nro de cuota.
+      busquedaNro = prompt("Desea buscar el detalle por N° de cuota ? (S/N)");
+      if (busquedaNro.toUpperCase() == 'S') {
           let bCuota = parseInt(prompt("Por favor, ingrese N° de la cuota que desea buscar.")) - 1;
           while (bCuota < 1 || bCuota > condiciones[n].plazo) {
             bCuota = parseInt(prompt(`Por favor ingrese N° de la cuota entre 1 y ${condiciones[n].plazo}`));
           }
-          //funcion para buscar el detalle de un mes
-          //Declaro la funcion Buscar Cuota
+          //funcion para buscar el detalle de un mes por Nro de cuota.
           const buscarCuota = (x) => {
             alert(
               `Cuota N°: ${pagos[x].cuotaN}\n
@@ -156,14 +155,47 @@ switch (inicio) {
           //invoco la funcion Buscar Cuota
           buscarCuota(bCuota);
           alert("Muchas gracias por usar el simulador. Vuelva pronto!");
+      }
+      
+      //------------------------------------------------------------------------
 
-      }else{
+      busquedaFecha = prompt("Desea buscar un pago por Fecha de Vencimiento? (S/N)");
+      if (busquedaFecha.toUpperCase() == 'S') {
+          let bFecha = prompt("Por favor, ingrese la Fecha de Vencimiento cuota que desea buscar(mm-yyyy).");
+          //averiguo si existe la fecha en el array "pagos" con METODO SOME
+          const existeFecha = pagos.some (pagos => pagos.vtoCuota === bFecha);
+          if (existeFecha == true) {
+            //Declaro la funcion buscarFecha
+//funcion para buscar el detalle de un mes por Fecha de Vencimiento.
+const buscarFecha = (bfecha) => {
+  const filtroFecha = pagos.filter(pagos => pagos.vtoCuota == bFecha);
+  alert(
+    `Cuota N°: ${filtroFecha[0].cuotaN}\n
+    Vencimiento: ${filtroFecha[0].vtoCuota}\n
+    Saldo Deuda: $${filtroFecha[0].saldoDeuda}\n
+    Cuota pura: $${filtroFecha[0].cuotaPura}\n
+    Capital: $${filtroFecha[0].capital}\n
+    Intereses: $${filtroFecha[0].intereses}\n
+    IVA: $${filtroFecha[0].iva}\n
+    Cuota Total: $${filtroFecha[0].cuotaTotal}`);
+    console.log(filtroFecha);
+}
+            //si existe invoco la funcion de busqueda por fecha en arryay pagos
+            buscarFecha();
+          }else {
+            alert("No existe la fecha de vencimiento en la simulación.");
+          }
+                  
+          
+        }else{
           alert("Muchas gracias por usar el simulador. Vuelva pronto!");
       }
-
       break;
       //fin de la simulación
     default:
       alert("Para volver a iniciar la simulacion recargue la página.");
       break;
 }
+
+
+
