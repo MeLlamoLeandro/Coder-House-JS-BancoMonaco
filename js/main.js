@@ -5,7 +5,7 @@ switch (inicio) {
       //Declaro constantes y variables GLOBALES del simulador.
       const iva = 0.21; //impuesto valor agregado, se imputa sobre los intereses de cada cuota
 
-      //Utilizo una funcion constructora para predeterminar los plazos y tazas que efectua el banco sobre los créditos combinandola con un array que almacena los obketos.
+      //Utilizo una funcion constructora para predeterminar los plazos y tazas que efectua el banco sobre los créditos combinandola con un array que almacena los objetos.
       class Condicion {
         constructor(plazo, tna) {
           this.plazo = plazo;
@@ -48,7 +48,7 @@ switch (inicio) {
 
       let n = iCondiciones - 1;
 
-      alert(`Simulando una serie de pagos para un crédito por: $${monto}\na devolver en un período de ${condiciones[n].plazo} meses\ncon una tasa del ${condiciones[n].tna}%`);
+      alert(`Simulando una serie de pagos para un crédito por: $${monto}\na devolver en un período de ${condiciones[n].plazo} meses\ncon una tasa de ${condiciones[n].tna}%`);
 
       //------------------------------------------------------------------------
       // Creo un Array para almacenar los pagos mensuales
@@ -144,7 +144,8 @@ switch (inicio) {
           //Declaro la funcion Buscar Cuota
           const buscarCuota = (x) => {
             alert(
-              `Mes: ${pagos[x].mes}\n
+              `Cuota N°: ${pagos[x].cuotaN}\n
+              Vencimiento: ${pagos[x].vtoCuota}\n
               Saldo Deuda: $${pagos[x].saldoDeuda}\n
               Cuota pura: $${pagos[x].cuotaPura}\n
               Capital: $${pagos[x].capital}\n
