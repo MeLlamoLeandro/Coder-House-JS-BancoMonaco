@@ -34,7 +34,7 @@ switch (inicio) {
     }
 
     //Solicito las condiciones de pago
-    iCondiciones = parseInt(
+    let iCondiciones = parseInt(
       prompt(`Por favor, seleccione las condiciones del crédito que desea simular:\n
         1 --> Plazo ${condiciones[0].plazo} meses y T.N.A ${condiciones[0].tna}%.\n
         2 --> Plazo ${condiciones[1].plazo} meses y T.N.A ${condiciones[1].tna}%.\n
