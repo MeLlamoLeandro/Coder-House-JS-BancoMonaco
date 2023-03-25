@@ -1,6 +1,5 @@
-let inicio = confirm(
-  "Bienvenido a Banco Mónaco!!!\n\nEste simulador le permitira calcular la serie de pagos a realizar\ncuando solicita un prestamo a tasa fija con sistema de amortización francés.\n\nPara continuar presione Aceptar.\nPara salir de la simulación  presione Cancelar."
-);
+
+
 // Inicio la simulacion si el usuario confirma al Aceptar, sino no ejecuta la simulacion
 switch (inicio) {
   case true:
