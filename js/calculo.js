@@ -50,8 +50,10 @@ function validaSimulacion(event) {
 }
 
 //Calculo la serie de pagos
-const pagos = [];
+
+
 const calcularPagos = (monto, plazo, tna) => {
+  pagos = [];  
   const tMensual = tna / 100 / 12;
   const cuotaPura =
     (monto * (tMensual * Math.pow(1 + tMensual, plazo))) /
@@ -65,18 +67,15 @@ const calcularPagos = (monto, plazo, tna) => {
       saldoDeuda = saldoDeuda - capital;
     }
 
-    //inicializo la fecha con el mes actual.
+    //inicializo la fecha con el mes actual en formato "mm-yyyy"
     const fecha = new Date();
-    // Sumo el número de meses al mes actual
-    fecha.setMonth(fecha.getMonth() + i);
-    // Guardo el mes y año en formato "mm-yyyy"
     let mesN = "";
+    fecha.setMonth(fecha.getMonth() + i);
     if (fecha.getMonth() + 1 < 10) {
       mesN = "0" + (fecha.getMonth() + 1);
     } else {
-      mesN = fecha.getMonth();
+      mesN = fecha.getMonth()+1;
     }
-
     const fechaCuota = `${mesN}-${fecha.getFullYear()}`;
 
     // Invoco funciones de calulos auxiliares
@@ -121,6 +120,7 @@ const calculaCuotaTotal = (capital, interes, pagoIva) => {
 //----------------------------------------------------------------------------------
 //funcion para mostar resultados
 const mostrarResultados = () => {
+  result.innerHTML = '';
   let tabla = `<h2>Resultados de la Simulación</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm text-center">
@@ -142,15 +142,15 @@ const mostrarResultados = () => {
     tabla += `<tr>
                             <td>${pagos[i].cuotaN}</td>
                             <td>${pagos[i].vtoCuota}</td>
-                            <td>${pagos[i].saldoDeuda}</td>
-                            <td>${pagos[i].cuotaPura}</td>
-                            <td>${pagos[i].capital}</td>
-                            <td>${pagos[i].intereses}</td>
-                            <td>${pagos[i].iva}</td>
-                            <td>${pagos[i].cuotaTotal}</td>
+                            <td>$${pagos[i].saldoDeuda}</td>
+                            <td>$${pagos[i].cuotaPura}</td>
+                            <td>$${pagos[i].capital}</td>
+                            <td>$${pagos[i].intereses}</td>
+                            <td>$${pagos[i].iva}</td>
+                            <td>$${pagos[i].cuotaTotal}</td>
                         </tr>`;
   }
-  
+
   tabla += `</tbody></table></div>`;
   
   result.innerHTML = tabla;
