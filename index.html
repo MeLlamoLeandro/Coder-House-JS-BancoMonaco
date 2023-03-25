@@ -9,212 +9,117 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Menu Nav-->
+    <div class="container-fluid  fixed-top bg-dark" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/img/bootstrap-solid.svg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Bootstrap
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div class="navbar-nav ">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link me-md-4" href="#">Disabled</a>
+                        <div><a href="#" class="btn btn-danger">Contacto</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Fin Menu Nav-->
+    <!-- Main-->
     <main class="m-5">
         <div class="d-flex justify-content-center align-items-center">
-            <h1>Banco Mónaco</h1>
+            <h1 class="m-4 p-4">Banco Mónaco</h1>
         </div>
-        <div class="m-5">
-            <h2>Simulador de Prestamos Personales</h2>
-            <h3>Ingreso de datos</h3>
-            <p class="lead">Este simulador le permitirá calcular la serie de pagos a realizar cuando solicita un prestamo a tasa fija con sistema de amortización francés.</p>
-            <p>Al cargar la página solicitará los datos por <strong>PROMPT</strong> y podrá visualizar los resultados de la simulación desde la <strong>consola (Ctrl + Shift + i)</strong></p>
-            <ol>
-                <li>Ingrese el monto a solicitar.</li>
-                <li>Ingrese el plazo en meses y la Tasa Nominal Anual (T.N.A) seleccionando una de las opciones.</li>
-                <li>Al finalizar la simulación podrá visualizar los resultados desde la consola.</li>
-                <li>Puede buscar el detalle de un pago en particular por Nro de Cuota.</li>
-                <li>Puede buscar el detalle de un pago por la Fecha de Vencimiento.</li>
-            </ol>
-        </div>
-            <!-- Formulario de Simulador -->
-        <form class="m-5">
-            <div class="form-group m-1 p-1  align-items-center col-6">
-                <div class="form-group m-1 ">
-                    <label >Monto del Préstamo:
-                        <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto">
-                    </label>
-                    <label>Plazo:
-                    <select class="form-select" aria-label="Default select example" id="condiciones">
-                        <option selected>Seleccione el Plazo</option>
-                        <option value="1">12 meses / T.N.A 96,5%</option>
-                        <option value="2">18 meses / T.N.A 96,5%</option>
-                        <option value="3">24 meses / T.N.A 96,5%</option>
-                        <option value="4">36 meses / T.N.A 103%</option>
-                        <option value="5">48 meses / T.N.A 103%</option>
-                        <option value="6">60 meses / T.N.A 103%</option>
-                        <option value="7">72 meses / T.N.A 103%</option>
-                    </select>
-                    </label>
-                    <button type="submit" class="btn btn-primary">Calcular</button>
+        <div class="container fluid">
+            
+            
+            <div class="row">
+                <div class="col-6 flex-column">
+                    <h3>¿Querés un préstamo con acreditación inmediata? Simulá el tuyo y solicitalo 100% online.</h3>
+                    <ul>
+                        <li>Para remodelar o equipar tu casa, emprender un negocio o lo que te propongas. ¡Concretá tu proyecto con <strong>la financiación más conveniente!  </strong></li>
+                        <li>Comenzá a disfrutar de tu préstamo ahora y pagalo <strong>en hasta 96 cuotas.</strong>  </li>
+                        <li>La solicitud es <strong>100% online</strong>, y se acredita inmediatamente. Además, definís el monto y el plazo que más te convenga.  </li>
+                        <li>Tenés la posibilidad de <strong>cancelarlo anticipadamente</strong> cuando quieras, en forma total o parcial.  </li>
+                    </ul>
                 </div>
-                <div class="form-group m-1">
-                    <label >Buscar resultados ingresando un N° de Cuota:
-                        <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
-                    </label>
-                    <input type="submit" class="btn text-bg-warning" value="Buscar">
-                </div>
-                <div class="form-group m-1">
-                    <label >Buscar resultados por Vencimiento:
-                        <input type="number" class="form-control" id="bFecha" placeholder="mm-yyyy">
-                    </label>
-                    <input type="submit" class="btn text-bg-warning" value="Buscar">
+                <div class="col-6 bg-secondary p-3 ">
+                    <h2>Simula tu Prestamo Personal</h2>
+                    <!-- Formulario de Simulador -->
+                    <form class="">
+                        <div class="form-group m-1 p-1 align-items-start">
+                            <div class="form-group m-1 ">
+                                <div class="d-flex align-items-start justify-content-center  bg-secondary-subtle">
+                                    <div class="m-4 col-5">
+                                        <label >Monto del Préstamo:
+                                            <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto">
+                                        </label>
+                                    </div>
+                                    <div class="m-1 col-5">
+                                        <label>Plazo:
+                                        <select class="form-select" aria-label="Default select example" id="condiciones">
+                                            <option selected>Seleccione el Plazo</option>
+                                            <option value="1">12 meses / T.N.A 96,5%</option>
+                                            <option value="2">18 meses / T.N.A 96,5%</option>
+                                            <option value="3">24 meses / T.N.A 96,5%</option>
+                                            <option value="4">36 meses / T.N.A 103%</option>
+                                            <option value="5">48 meses / T.N.A 103%</option>
+                                            <option value="6">60 meses / T.N.A 103%</option>
+                                            <option value="7">72 meses / T.N.A 103%</option>
+                                        </select>
+                                        </label>
+                                    </div>
+                                    <div class="m-1 col-2">
+                                        <button type="submit" class="btn btn-primary">Simular</button>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="form-group m-4">
+                                <label >Buscar resultados ingresando un N° de Cuota:
+                                    <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
+                                </label>
+                                <input type="submit" class="btn text-bg-warning" value="Buscar">
+                            </div>
+                            <div class="form-group m-4">
+                                <label >Buscar resultados por Vencimiento:
+                                    <input type="number" class="form-control" id="bFecha" placeholder="mm-yyyy">
+                                </label>
+                                <input type="submit" class="btn text-bg-warning" value="Buscar">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
-        <div class="d-flex  flex-column align-items-center m-3">
-            <h2>Resultados de la Simulación  - (a futuro) -</h2>
-            <div class="table-responsive ">
-                <table class="table table-striped table-sm text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col">#Cuota N°</th>
-                        <th scope="col">Vencimiento</th>
-                        <th scope="col">Saldo Deuda</th>
-                        <th scope="col">Cuota Pura</th>
-                        <th scope="col">Capital</th>
-                        <th scope="col">Intereses</th>
-                        <th scope="col">IVA</th>
-                        <th scope="col">Cuota Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        </div>
+            
+      
+        <div class="resultado">
+            
         </div>
     </main>
-    
-    <script src="./js/main.js"></script>
+    <!-- Fin Main-->
+    <aside>
+        <ol>
+            <li>Ingrese el monto a solicitar.</li>
+            <li>Ingrese el plazo en meses y la Tasa Nominal Anual (T.N.A) seleccionando una de las opciones.</li>
+            <li>Al finalizar la simulación podrá visualizar los resultados desde la consola.</li>
+            <li>Puede buscar el detalle de un pago en particular por Nro de Cuota.</li>
+            <li>Puede buscar el detalle de un pago por la Fecha de Vencimiento.</li>
+        </ol>
+    </aside>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
