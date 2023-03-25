@@ -1,10 +1,8 @@
-
-
-mostrarResultados();
 //Declaro constantes y variables GLOBALES del simulador.
 const iva = 0.21; //impuesto valor agregado, se imputa sobre los intereses de cada cuota
 
-let result = document.querySelector('.resultado');
+
+
 
 //Utilizo una funcion constructora para predeterminar los plazos y tazas que efectua el banco sobre los créditos combinandola con un array que almacena los objetos.
 class Condicion {
