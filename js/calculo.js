@@ -35,12 +35,11 @@ function cargarCondiciones() {
 cargarCondiciones();
 
 //------------------------------------------------------------------------
-//valida simulacion y corre simulacion
+//valida y corre simulacion
 simulacion.addEventListener("submit", validaSimulacion);
 
 function validaSimulacion(event) {
   event.preventDefault();
-
   monto = parseInt(iMonto.value);
   plazo = parseInt(condiciones[selectCond.value].plazo);
   tna = parseFloat(condiciones[selectCond.value].tna);
@@ -49,9 +48,8 @@ function validaSimulacion(event) {
   calcularPagos(monto, plazo, tna);
 }
 
+
 //Calculo la serie de pagos
-
-
 const calcularPagos = (monto, plazo, tna) => {
   pagos = [];  
   const tMensual = tna / 100 / 12;
@@ -100,7 +98,7 @@ const calcularPagos = (monto, plazo, tna) => {
   mostrarResultados();
 };
 //----------------------------------------------------------------
-//Declaro funciones de calculos auxiliares
+//funciones de calculos auxiliares
 const calculaInteres = (saldoDeuda, tMensual) => {
   interes = saldoDeuda * tMensual;
 };
@@ -155,5 +153,3 @@ const mostrarResultados = () => {
   
   result.innerHTML = tabla;
 };
-
-
