@@ -2,6 +2,7 @@
 const iva = 0.21;
 const iMonto = document.getElementById("monto");
 let simulacion = document.getElementById("formsimulador");
+const buscar = document.getElementById("opcionesBuscar");
 const info = document.getElementById("infoPrestamo");
 const result = document.getElementById("resultado");
 
@@ -99,9 +100,11 @@ const calcularPagos = (monto, plazo, tna) => {
 
   calculaTem();
   calculaTea();
+  mostrarFxBusqueda();
   mostrarInfoPrestamo();
   mostrarResultados();
 };
+
 //----------------------------------------------------------------
 //funciones de calculos auxiliares
 const calculaInteres = (saldoDeuda, tMensual) => {
@@ -131,7 +134,7 @@ const calculaTea = () => {
 //----------------------------------------------------------------------------------
 //funcion para mostar Informacion del Prestamo
 const mostrarInfoPrestamo = () => {
-  info,innerHTML = "";
+  info, (innerHTML = "");
   let tablaInfo = `
   <table class="background-none">
       <tbody>
@@ -149,13 +152,17 @@ const mostrarInfoPrestamo = () => {
               <td class="border-bottom text-center"><strong>$${monto}</strong></td>
               <td class="border-bottom text-center"><strong>${plazo} Cuotas</strong></td>
               <td class="border-bottom text-center"><strong>${tna} %</strong></td>
-              <td class="border-bottom text-center"><strong>${tea.toFixed(2)} %</strong></td>
-              <td class="border-bottom text-center"><strong>${tem.toFixed(5)} %</strong></td>
+              <td class="border-bottom text-center"><strong>${tea.toFixed(
+                2
+              )} %</strong></td>
+              <td class="border-bottom text-center"><strong>${tem.toFixed(
+                5
+              )} %</strong></td>
           </tr>
       </tbody>
   </table>
   `;
-  info.innerHTML = tablaInfo
+  info.innerHTML = tablaInfo;
 };
 //----------------------------------------------------------------------------------
 //funcion para mostar resultados
@@ -194,4 +201,115 @@ const mostrarResultados = () => {
   tabla += `</tbody></table></div>`;
 
   result.innerHTML = tabla;
+};
+
+// mostrar funciones de busqueda
+const mostrarFxBusqueda = () => {
+  buscar.innerHTML = `
+  <div class="m-4">
+      <div>
+          <label>Buscar resultados ingresando un N° de Cuota:
+              <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
+          </label>
+          <button id="btnBcuota" class="btn text-bg-warning">Buscar</button>
+      </div>
+      <div id="divBusquedaCuota"></div>
+  </div>
+  <div class="form-group m-4">
+      <div>
+          <label >Buscar resultados por Vencimiento:
+              <input type="text" class="form-control" id="bFecha" placeholder="mm-yyyy">
+          </label>
+          <button id="btnBfecha" class="btn text-bg-warning">Buscar</button>
+      </div>
+      <div id="divBusquedaFecha"></div>
+  </div>
+  `;
+
+  //FX al hacer click en buscar Nro de cuota
+  let bCuota = document.getElementById("bCuota");
+  let divBusquedaCuota = document.getElementById("divBusquedaCuota");
+  let btnBcuota = document.getElementById("btnBcuota");
+  btnBcuota.onclick = () => {
+    buscarCuota(bCuota.value - 1);
+  };
+
+  //FX al hacer click en buscar por fecha de vencimiento
+  let bFecha = document.getElementById("bFecha");
+  let divBusquedaFecha = document.getElementById("divBusquedaFecha");
+  let btnBfecha = document.getElementById("btnBfecha");
+  btnBfecha.onclick = () => {
+    //averiguo si existe la fecha en el array "pagos" con METODO SOME
+    const existeFecha = pagos.some((pagos) => pagos.vtoCuota === bFecha.value);
+    if (existeFecha == true) {
+      buscarFecha(bFecha.value);
+    }
+  };
+};
+
+//------------------------------------------------------------------------
+//FX busqueda por Nro de cuota.
+const buscarCuota = (i) => {
+  divBusquedaCuota.innerHTML = `
+  <table class="table table-striped table-sm text-center">
+    <thead>
+        <tr>
+            <th scope="col">Cuota N°</th>
+            <th scope="col">Vencimiento</th>
+            <th scope="col">Saldo Deuda</th>
+            <th scope="col">Cuota Pura</th>
+            <th scope="col">Capital</th>
+            <th scope="col">Intereses</th>
+            <th scope="col">IVA</th>
+            <th scope="col">Cuota Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>${pagos[i].cuotaN}</td>
+          <td>${pagos[i].vtoCuota}</td>
+          <td>$${pagos[i].saldoDeuda}</td>
+          <td>$${pagos[i].cuotaPura}</td>
+          <td>$${pagos[i].capital}</td>
+          <td>$${pagos[i].intereses}</td>
+          <td>$${pagos[i].iva}</td>
+          <td>$${pagos[i].cuotaTotal}</td>
+        </tr>
+    </tbody>
+  </table>
+  `;
+};
+
+//------------------------------------------------------------------------
+//FX busqueda por fecha de vencimiento utilizando el METODO FILTER
+const buscarFecha = () => {
+  const filtroFecha = pagos.filter((pagos) => pagos.vtoCuota == bFecha.value);
+  divBusquedaFecha.innerHTML = `
+  <table class="table table-striped table-sm text-center">
+    <thead>
+        <tr>
+            <th scope="col">Cuota N°</th>
+            <th scope="col">Vencimiento</th>
+            <th scope="col">Saldo Deuda</th>
+            <th scope="col">Cuota Pura</th>
+            <th scope="col">Capital</th>
+            <th scope="col">Intereses</th>
+            <th scope="col">IVA</th>
+            <th scope="col">Cuota Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>${filtroFecha[0].cuotaN}</td>
+          <td>${filtroFecha[0].vtoCuota}</td>
+          <td>$${filtroFecha[0].saldoDeuda}</td>
+          <td>$${filtroFecha[0].cuotaPura}</td>
+          <td>$${filtroFecha[0].capital}</td>
+          <td>$${filtroFecha[0].intereses}</td>
+          <td>$${filtroFecha[0].iva}</td>
+          <td>$${filtroFecha[0].cuotaTotal}</td>
+        </tr>
+    </tbody>
+  </table>
+  `;
 };

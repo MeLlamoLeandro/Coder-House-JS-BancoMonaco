@@ -9,20 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Menu Nav-->
     <div class="container-fluid  fixed-top bg-dark" data-bs-theme="dark">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-
                 <a class="navbar-brand" href="#">
-                    <img src="" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-                    Banco Mónaco
+                    <img src="./img/logo2.png" alt="Logo" width="40%" height="40%" class="d-inline-block align-text-top">
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <div class="navbar-nav ">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -35,15 +30,11 @@
             </div>
         </nav>
     </div>
-    <!-- Fin Menu Nav-->
-    <!-- Main-->
     <main class="m-5">
         <div class="d-flex justify-content-center align-items-center">
             <h1 class="m-4 p-4">Banco Mónaco</h1>
         </div>
-        <div class="container fluid">
-            
-            
+        <div class="container fluid">      
             <div class="row">
                 <div class="col-6 flex-column">
                     <h3>¿Querés un préstamo con acreditación inmediata? Simulá el tuyo y solicitalo 100% online.</h3>
@@ -53,6 +44,10 @@
                         <li>La solicitud es <strong>100% online</strong>, y se acredita inmediatamente. Además, definís el monto y el plazo que más te convenga.  </li>
                         <li>Tenés la posibilidad de <strong>cancelarlo anticipadamente</strong> cuando quieras, en forma total o parcial.  </li>
                     </ul>
+                    <div class="d-flex flex-column align-items-end">
+                        <h3><span style="color:#696969;">Si no sos cliente, pedilo acá.</span></h3>
+                        <button type="button" id="solicitar"   class="btn btn-danger">Solicitar</button>
+                    </div>
                 </div>
                 <div class="col-6 bg-secondary p-3">
                     <h2>Simula tu Prestamo Personal</h2>
@@ -83,23 +78,17 @@
                 </div>
             </div>
         </div>
-        <div class="form-group m-4">
-            <label >Buscar resultados ingresando un N° de Cuota:
-                <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
-            </label>
-            <input type="submit" class="btn text-bg-warning" value="Buscar">
-        </div>
-        <div class="form-group m-4">
-            <label >Buscar resultados por Vencimiento:
-                <input type="number" class="form-control" id="bFecha" placeholder="mm-yyyy">
-            </label>
-            <input type="submit" class="btn text-bg-warning" value="Buscar">
-        </div>
-
+        <div id='opcionesBuscar' class="col-12 m-4"></div>
         <div id='infoPrestamo' class="col-12 m-4"></div>
         <div id="resultado" class="col-12 m-4"></div>
+        
     </main>
-    <!-- Fin Main-->
+    <aside>Disclaimer: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam laboriosam deserunt cumque repellat, rerum ab quis ullam exercitationem nemo commodi amet iste saepe eum dolore recusandae consequatur est officiis sequi?</aside>
+    <footer class="container-fluid bg-dark text-white py-3">
+        <div class="copyright">
+            <span>&copy 2023 - by Leandro Giffoni</span>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="./js/calculo.js"></script>
 </body>
