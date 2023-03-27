@@ -2,6 +2,7 @@
 const iva = 0.21;
 const iMonto = document.getElementById("monto");
 let simulacion = document.getElementById("formsimulador");
+const info = document.getElementById("infoPrestamo");
 const result = document.getElementById("resultado");
 
 //Armo una funcion constructora para los plazos y tasas.
@@ -13,13 +14,15 @@ class Condicion {
   }
 }
 const condiciones = [];
-condiciones.push(new Condicion(12, 96.5));
-condiciones.push(new Condicion(18, 96.5));
-condiciones.push(new Condicion(24, 96.5));
-condiciones.push(new Condicion(36, 103));
-condiciones.push(new Condicion(48, 103));
-condiciones.push(new Condicion(60, 103));
-condiciones.push(new Condicion(72, 103));
+condiciones.push(new Condicion(12, 99.5));
+condiciones.push(new Condicion(18, 99.5));
+condiciones.push(new Condicion(24, 99.5));
+condiciones.push(new Condicion(36, 106.5));
+condiciones.push(new Condicion(48, 106.5));
+condiciones.push(new Condicion(60, 106.5));
+condiciones.push(new Condicion(72, 106.5));
+condiciones.push(new Condicion(84, 106.5));
+condiciones.push(new Condicion(96, 106.5));
 
 //cargo las condiciones en el SELECT #selectCond del HTML
 function cargarCondiciones() {
@@ -48,10 +51,9 @@ function validaSimulacion(event) {
   calcularPagos(monto, plazo, tna);
 }
 
-
 //Calculo la serie de pagos
 const calcularPagos = (monto, plazo, tna) => {
-  pagos = [];  
+  pagos = [];
   const tMensual = tna / 100 / 12;
   const cuotaPura =
     (monto * (tMensual * Math.pow(1 + tMensual, plazo))) /
@@ -72,7 +74,7 @@ const calcularPagos = (monto, plazo, tna) => {
     if (fecha.getMonth() + 1 < 10) {
       mesN = "0" + (fecha.getMonth() + 1);
     } else {
-      mesN = fecha.getMonth()+1;
+      mesN = fecha.getMonth() + 1;
     }
     const fechaCuota = `${mesN}-${fecha.getFullYear()}`;
 
@@ -95,6 +97,9 @@ const calcularPagos = (monto, plazo, tna) => {
     });
   }
 
+  calculaTem();
+  calculaTea();
+  mostrarInfoPrestamo();
   mostrarResultados();
 };
 //----------------------------------------------------------------
@@ -115,10 +120,47 @@ const calculaCuotaTotal = (capital, interes, pagoIva) => {
   cuotaTotal = capital + interes + pagoIva;
 };
 
+const calculaTem = () => {
+  tem = tna / 12;
+};
+
+const calculaTea = () => {
+  tea = (Math.pow(1 + tem / 100, 12) - 1) * 100;
+};
+
+//----------------------------------------------------------------------------------
+//funcion para mostar Informacion del Prestamo
+const mostrarInfoPrestamo = () => {
+  info,innerHTML = "";
+  let tablaInfo = `
+  <table class="background-none">
+      <tbody>
+          <tr>
+              <td colspan="5" class="border-bottom p-2 fs-4"><strong>Información del Préstamo</strong></td>
+          </tr>
+          <tr>
+              <td  class="p-2">Monto del Préstamo</td>
+              <td  class="p-2">Plazo</td>
+              <td  class="p-2">Tasa Nominal Anual</td>
+              <td class="p-2">Tasa Efectiva Anual</td>
+              <td class="p-2">Tasa Efectiva Mensual</td>
+          </tr>
+          <tr>
+              <td class="border-bottom text-center"><strong>$${monto}</strong></td>
+              <td class="border-bottom text-center"><strong>${plazo} Cuotas</strong></td>
+              <td class="border-bottom text-center"><strong>${tna} %</strong></td>
+              <td class="border-bottom text-center"><strong>${tea.toFixed(2)} %</strong></td>
+              <td class="border-bottom text-center"><strong>${tem.toFixed(5)} %</strong></td>
+          </tr>
+      </tbody>
+  </table>
+  `;
+  info.innerHTML = tablaInfo
+};
 //----------------------------------------------------------------------------------
 //funcion para mostar resultados
 const mostrarResultados = () => {
-  result.innerHTML = '';
+  result.innerHTML = "";
   let tabla = `<h2>Resultados de la Simulación</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm text-center">
@@ -150,6 +192,6 @@ const mostrarResultados = () => {
   }
 
   tabla += `</tbody></table></div>`;
-  
+
   result.innerHTML = tabla;
 };
