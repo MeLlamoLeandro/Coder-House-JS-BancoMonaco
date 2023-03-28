@@ -1,55 +1,33 @@
-//Declaro constantes y acceso al DOM dek simulador.
+//Declaro constantes y acceso al DOM del simulador.
 const iva = 0.21;
-const iMonto = document.getElementById("monto");
-let simulacion = document.getElementById("formsimulador");
-const buscar = document.getElementById("opcionesBuscar");
-const info = document.getElementById("infoPrestamo");
-const result = document.getElementById("resultado");
-
-//Armo una funcion constructora para los plazos y tasas.
-//Cuando hay nuevas combinacionesd de cuotas y tasas de interes solo hay que mantener esta parte del codigo porque despues se cargan con la funcion "cargarCondiciones()"
-class Condicion {
-  constructor(plazo, tna) {
-    this.plazo = plazo;
-    this.tna = tna;
-  }
-}
-const condiciones = [];
-condiciones.push(new Condicion(12, 99.5));
-condiciones.push(new Condicion(18, 99.5));
-condiciones.push(new Condicion(24, 99.5));
-condiciones.push(new Condicion(36, 106.5));
-condiciones.push(new Condicion(48, 106.5));
-condiciones.push(new Condicion(60, 106.5));
-condiciones.push(new Condicion(72, 106.5));
-condiciones.push(new Condicion(84, 106.5));
-condiciones.push(new Condicion(96, 106.5));
-
-//cargo las condiciones en el SELECT #selectCond del HTML
-function cargarCondiciones() {
-  const select = document.getElementById("selectCond");
-  let options = "";
-  for (let i = 0; i < condiciones.length; i++) {
-    const condicion = condiciones[i];
-    options += `<option value="${i}">${condicion.plazo} meses - TNA: ${condicion.tna}%</option>`;
-  }
-  select.innerHTML = options;
-}
-
-cargarCondiciones();
+const iMontoDom = document.getElementById("monto");
+let simulacionDom = document.getElementById("formsimulador");
+const buscarDom = document.getElementById("opcionesBuscar");
+const infoDom = document.getElementById("infoPrestamo");
+const resultDom = document.getElementById("resultado");
 
 //------------------------------------------------------------------------
-//valida y corre simulacion
-simulacion.addEventListener("submit", validaSimulacion);
-
-function validaSimulacion(event) {
+//Simulacion
+simulacionDom.addEventListener("submit", iniciaSimulacion);
+function iniciaSimulacion(event) {
   event.preventDefault();
-  monto = parseInt(iMonto.value);
-  plazo = parseInt(condiciones[selectCond.value].plazo);
-  tna = parseFloat(condiciones[selectCond.value].tna);
+
+  const optCond = cargarCondicionesLS();
+
+  monto = parseInt(iMontoDom.value);
+  plazo = parseInt(optCond[selectCond.value].plazo);
+  tna = parseFloat(optCond[selectCond.value].tna);
 
   //Invoco la funcion principal calcularPagos
   calcularPagos(monto, plazo, tna);
+
+  guardaInfoLS();
+  guardaSimulacionLS(pagos);
+
+  mostrarFxBusqueda();
+  const info = cargarInfoLS();
+  mostrarInfoPrestamo(info);
+  mostrarResultados(pagos);
 }
 
 //Calculo la serie de pagos
@@ -100,9 +78,6 @@ const calcularPagos = (monto, plazo, tna) => {
 
   calculaTem();
   calculaTea();
-  mostrarFxBusqueda();
-  mostrarInfoPrestamo();
-  mostrarResultados();
 };
 
 //----------------------------------------------------------------
@@ -132,9 +107,47 @@ const calculaTea = () => {
 };
 
 //----------------------------------------------------------------------------------
+const guardaInfoLS = () => {
+  const info = {
+    monto: monto,
+    plazo: plazo,
+    tna: tna,
+    tea: tea,
+    tem: tem,
+  };
+  localStorage.setItem("info", JSON.stringify(info));
+};
+
+function cargarInfoLS() {
+  return JSON.parse(localStorage.getItem("info")) || [];
+}
+
+function renderInfo() {
+  const info = cargarInfoLS();
+  if (info.length > 0) {
+    mostrarInfoPrestamo(info);
+  }
+}
+
+//guarda simulacion en LS
+const guardaSimulacionLS = (pagos) => {
+  localStorage.setItem("pagos", JSON.stringify(pagos));
+};
+
+function cargarSimulacionLS() {
+  return JSON.parse(localStorage.getItem("pagos")) || [];
+}
+
+function renderResultados() {
+  const pagos = cargarSimulacionLS();
+  if (pagos.length > 0) {
+    mostrarResultados(pagos);
+  }
+}
+
 //funcion para mostar Informacion del Prestamo
-const mostrarInfoPrestamo = () => {
-  info, (innerHTML = "");
+const mostrarInfoPrestamo = (info) => {
+  infoDom.innerHTML = "";
   let tablaInfo = `
   <table class="background-none">
       <tbody>
@@ -149,25 +162,21 @@ const mostrarInfoPrestamo = () => {
               <td class="p-2">Tasa Efectiva Mensual</td>
           </tr>
           <tr>
-              <td class="border-bottom text-center"><strong>$${monto}</strong></td>
-              <td class="border-bottom text-center"><strong>${plazo} Cuotas</strong></td>
-              <td class="border-bottom text-center"><strong>${tna} %</strong></td>
-              <td class="border-bottom text-center"><strong>${tea.toFixed(
-                2
-              )} %</strong></td>
-              <td class="border-bottom text-center"><strong>${tem.toFixed(
-                5
-              )} %</strong></td>
+              <td class="border-bottom text-center"><strong>$${info.monto}</strong></td>
+              <td class="border-bottom text-center"><strong>${info.plazo} Cuotas</strong></td>
+              <td class="border-bottom text-center"><strong>${info.tna} %</strong></td>
+              <td class="border-bottom text-center"><strong>${info.tea.toFixed(2)} %</strong></td>
+              <td class="border-bottom text-center"><strong>${info.tem.toFixed(5)} %</strong></td>
           </tr>
       </tbody>
   </table>
   `;
-  info.innerHTML = tablaInfo;
+  infoDom.innerHTML = tablaInfo;
 };
 //----------------------------------------------------------------------------------
 //funcion para mostar resultados
-const mostrarResultados = () => {
-  result.innerHTML = "";
+const mostrarResultados = (pagos) => {
+  resultDom.innerHTML = "";
   let tabla = `<h2>Resultados de la Simulación</h2>
     <div class="table-responsive">
         <table class="table table-striped table-sm text-center">
@@ -200,12 +209,12 @@ const mostrarResultados = () => {
 
   tabla += `</tbody></table></div>`;
 
-  result.innerHTML = tabla;
+  resultDom.innerHTML = tabla;
 };
 
 // mostrar funciones de busqueda
 const mostrarFxBusqueda = () => {
-  buscar.innerHTML = `
+  buscarDom.innerHTML = `
   <div class="m-4">
       <div>
           <label>Buscar resultados ingresando un N° de Cuota:
@@ -313,3 +322,5 @@ const buscarFecha = () => {
   </table>
   `;
 };
+renderInfo();
+renderResultados();
