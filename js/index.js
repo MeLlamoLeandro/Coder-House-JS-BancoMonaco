@@ -10,7 +10,6 @@ const resultDom = document.getElementById("resultado");
 simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
-
   const optCond = cargarCondicionesLS();
 
   monto = parseInt(iMontoDom.value);
@@ -28,6 +27,7 @@ function iniciaSimulacion(event) {
   mostrarInfoPrestamo(info);
   mostrarResultados(pagos);
   document.getElementById("continua").innerHTML = "";
+  scroll();
 }
 
 //Calculo la serie de pagos
@@ -197,7 +197,7 @@ const mostrarResultados = (pagos) => {
 
   tabla += `</tbody></table></div>
   <button type="button" class="btn btn-success">Solicitar</button>
-  <button type="button" class="btn btn-warning">Volver a Simular</button>`;
+  <button type="button" class="btn btn-warning" onclick="borrarTodo()">Volver a Simular</button>`;
 
   resultDom.innerHTML = tabla;
 };
@@ -206,7 +206,7 @@ const mostrarResultados = (pagos) => {
 const mostrarFxBusqueda = () => {
   buscarDom.innerHTML = `
   <div class="m-4">
-      <div>
+      <div id="stopScroll">
           <label>Buscar resultados ingresando un N° de Cuota:
               <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
           </label>
@@ -240,6 +240,7 @@ const mostrarFxBusqueda = () => {
   let divBusquedaFecha = document.getElementById("divBusquedaFecha");
   let btnBfecha = document.getElementById("btnBfecha");
   btnBfecha.onclick = () => {
+    const pagos = cargarSimulacionLS();
     //averiguo si existe la fecha en el array "pagos" con METODO SOME
     const existeFecha = pagos.some((pagos) => pagos.vtoCuota === bFecha.value);
     if (existeFecha == true) {
@@ -251,18 +252,17 @@ const mostrarFxBusqueda = () => {
     const salida = document.getElementById("divBusquedaCuota");
     salida.innerHTML = "";
   });
-  
+
   document.getElementById("btnBorraBfecha").addEventListener("click", () => {
     const salida = document.getElementById("divBusquedaFecha");
     salida.innerHTML = "";
   });
-
-
 };
 
 //------------------------------------------------------------------------
 //FX busqueda por Nro de cuota.
 const buscarCuota = (i) => {
+  const pagos = cargarSimulacionLS();
   divBusquedaCuota.innerHTML = `
   <table class="table table-striped table-sm text-center">
     <thead>
@@ -296,6 +296,7 @@ const buscarCuota = (i) => {
 //------------------------------------------------------------------------
 //FX busqueda por fecha de vencimiento utilizando el METODO FILTER
 const buscarFecha = () => {
+  const pagos = cargarSimulacionLS();
   const filtroFecha = pagos.filter((pagos) => pagos.vtoCuota == bFecha.value);
   divBusquedaFecha.innerHTML = `
   <table class="table table-striped table-sm text-center">
@@ -346,14 +347,18 @@ function cargarInfoLS() {
   return JSON.parse(localStorage.getItem("info")) || [];
 }
 
-function renderInfo() {
+function renderResultados() {
   const info = cargarInfoLS();
+  const pagos = cargarSimulacionLS();
   if (info.length != []) {
     let salida = `<div class="alert alert-success" role="alert">
     Continua tu simulación desde donde la dejaste!
     <button type="button" class="btn btn-danger" onclick="borrarTodo()">Borrar Todo</button>
   </div>`;
     document.getElementById("continua").innerHTML = salida;
+    if (pagos.length > 0) {
+      mostrarResultados(pagos);
+    }
     mostrarFxBusqueda();
     mostrarInfoPrestamo(info);
   }
@@ -363,24 +368,33 @@ function cargarSimulacionLS() {
   return JSON.parse(localStorage.getItem("pagos")) || [];
 }
 
-function renderResultados() {
-  const pagos = cargarSimulacionLS();
-  if (pagos.length > 0) {
-    mostrarResultados(pagos);
-  }
-}
-
 renderSelect();
-renderInfo();
 renderResultados();
 
 //-----------------------------------------
-//Borrar
+//Borrar Todo
 function borrarTodo() {
   localStorage.removeItem("pagos");
   localStorage.removeItem("info");
-  location.reload();
+  infoDom.innerHTML = "";
+  resultDom.innerHTML = "";
+  buscarDom.innerHTML = "";
+  document.getElementById("continua").innerHTML = "";
+  scrollTop();
 }
 
+//---------------------------------------------
+//scrolling
+function scroll() {
+  const a = document.getElementById("stopScroll");
+  a.scrollIntoView({
+    behavior: "smooth",
+  });
+}
 
-
+function scrollTop() {
+  const a = document.getElementById("top");
+  a.scrollIntoView({
+    behavior: "smooth",
+  });
+}
