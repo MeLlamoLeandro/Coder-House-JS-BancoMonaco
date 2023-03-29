@@ -27,7 +27,7 @@ function iniciaSimulacion(event) {
   mostrarFxBusqueda();
   mostrarInfoPrestamo(info);
   mostrarResultados(pagos);
-  document.getElementById("continua").innerHTML = '';
+  document.getElementById("continua").innerHTML = "";
 }
 
 //Calculo la serie de pagos
@@ -113,7 +113,7 @@ const guardaInfoLS = () => {
     plazo: plazo,
     tna: tna,
     tea: tea,
-    tem: tem
+    tem: tem,
   };
   localStorage.setItem("info", JSON.stringify(info));
 };
@@ -197,8 +197,7 @@ const mostrarResultados = (pagos) => {
 
   tabla += `</tbody></table></div>
   <button type="button" class="btn btn-success">Solicitar</button>
-  <button type="button" class="btn btn-warning">Volver a Simular</button>
-  <button type="button" class="btn btn-danger">Borrar</button>`;
+  <button type="button" class="btn btn-warning">Volver a Simular</button>`;
 
   resultDom.innerHTML = tabla;
 };
@@ -247,6 +246,18 @@ const mostrarFxBusqueda = () => {
       buscarFecha(bFecha.value);
     }
   };
+
+  document.getElementById("btnBorraBcuota").addEventListener("click", () => {
+    const salida = document.getElementById("divBusquedaCuota");
+    salida.innerHTML = "";
+  });
+  
+  document.getElementById("btnBorraBfecha").addEventListener("click", () => {
+    const salida = document.getElementById("divBusquedaFecha");
+    salida.innerHTML = "";
+  });
+
+
 };
 
 //------------------------------------------------------------------------
@@ -340,8 +351,8 @@ function renderInfo() {
   if (info.length != []) {
     let salida = `<div class="alert alert-success" role="alert">
     Continua tu simulación desde donde la dejaste!
-    <button type="button" class="btn btn-danger">Borrar Todo</button>
-  </div>`
+    <button type="button" class="btn btn-danger" onclick="borrarTodo()">Borrar Todo</button>
+  </div>`;
     document.getElementById("continua").innerHTML = salida;
     mostrarFxBusqueda();
     mostrarInfoPrestamo(info);
@@ -362,3 +373,14 @@ function renderResultados() {
 renderSelect();
 renderInfo();
 renderResultados();
+
+//-----------------------------------------
+//Borrar
+function borrarTodo() {
+  localStorage.removeItem("pagos");
+  localStorage.removeItem("info");
+  location.reload();
+}
+
+
+
