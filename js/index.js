@@ -27,6 +27,7 @@ function iniciaSimulacion(event) {
   mostrarFxBusqueda();
   mostrarInfoPrestamo(info);
   mostrarResultados(pagos);
+  document.getElementById("continua").innerHTML = '';
 }
 
 //Calculo la serie de pagos
@@ -194,7 +195,10 @@ const mostrarResultados = (pagos) => {
                         </tr>`;
   }
 
-  tabla += `</tbody></table></div>`;
+  tabla += `</tbody></table></div>
+  <button type="button" class="btn btn-success">Solicitar</button>
+  <button type="button" class="btn btn-warning">Volver a Simular</button>
+  <button type="button" class="btn btn-danger">Borrar</button>`;
 
   resultDom.innerHTML = tabla;
 };
@@ -208,6 +212,7 @@ const mostrarFxBusqueda = () => {
               <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
           </label>
           <button id="btnBcuota" class="btn text-bg-warning">Buscar</button>
+          <button id="btnBorraBcuota" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaCuota"></div>
   </div>
@@ -217,6 +222,7 @@ const mostrarFxBusqueda = () => {
               <input type="text" class="form-control" id="bFecha" placeholder="mm-yyyy">
           </label>
           <button id="btnBfecha" class="btn text-bg-warning">Buscar</button>
+          <button id="btnBorraBfecha" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaFecha"></div>
   </div>
@@ -332,6 +338,12 @@ function cargarInfoLS() {
 function renderInfo() {
   const info = cargarInfoLS();
   if (info.length != []) {
+    let salida = `<div class="alert alert-success" role="alert">
+    Continua tu simulación desde donde la dejaste!
+    <button type="button" class="btn btn-danger">Borrar Todo</button>
+  </div>`
+    document.getElementById("continua").innerHTML = salida;
+    mostrarFxBusqueda();
     mostrarInfoPrestamo(info);
   }
 }
