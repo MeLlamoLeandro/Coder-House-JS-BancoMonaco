@@ -6,7 +6,7 @@ const buscarDom = document.getElementById("opcionesBuscar");
 const infoDom = document.getElementById("infoPrestamo");
 const resultDom = document.getElementById("resultado");
 
-//Simulacion--------------------------------------------------------------------------------------------
+//Simulacion-------------------------------------------------------------------------------------------
 simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
