@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.banner{
+  height: 400px;
+  width: 100%;
+  background-image:url(../img/prestamos-personales-1360x400-20170531.jpg) ;
+}
+
 /*elimino arrows del input*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
