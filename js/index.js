@@ -10,7 +10,7 @@ const resultDom = document.getElementById("resultado");
 simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
-  const optCond = cargarCondicionesLS();
+  // const optCond = cargarCondicionesLS();
 
   monto = parseInt(iMontoDom.value);
   plazo = parseInt(optCond[selectCond.value].plazo);
