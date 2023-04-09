@@ -364,7 +364,7 @@ function cargarSimulacionLS() {
   return JSON.parse(localStorage.getItem("pagos")) || [];
 }
 
-renderSelect();
+// renderSelect();
 renderResultados();
 
 //-----------------------------------------
