@@ -1,24 +1,29 @@
-//Declaro constantes y acceso al DOM del simulador.
+//Declaro variables-constantes globales.
 const iva = 0.21;
-const iMontoDom = document.getElementById("monto");
+let monto;
+let plazo;
+let tna;
+//Acceso al DOM del simulador
 let simulacionDom = document.getElementById("formsimulador");
+const iMontoDom = document.getElementById("monto");
+const selectDom = document.getElementById("selectCond");
 const buscarDom = document.getElementById("opcionesBuscar");
 const infoDom = document.getElementById("infoPrestamo");
 const resultDom = document.getElementById("resultado");
 
-//Simulacion-------------------------------------------------------------------------------------------
+//Inicia Simulacion -------------------------------------------------------------------------------------------
 simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
-  // const optCond = cargarCondicionesLS();
-
+  
   monto = parseInt(iMontoDom.value);
-  plazo = parseInt(optCond[selectCond.value].plazo);
-  tna = parseFloat(optCond[selectCond.value].tna);
+  plazo = parseInt(condiciones[selectDom.value].plazo);
+  tna = parseFloat(condiciones[selectDom.value].tna);
 
   //Invoco la funcion principal calcularPagos
   calcularPagos(monto, plazo, tna);
 
+  // Invoco funciones auxiliares
   guardaInfoLS();
   guardaSimulacionLS(pagos);
 
@@ -30,7 +35,7 @@ function iniciaSimulacion(event) {
   scroll();
 }
 
-//Calculo la serie de pagos
+//Funcion para Calcular Pagos
 const calcularPagos = (monto, plazo, tna) => {
   pagos = [];
   const tMensual = tna / 100 / 12;
@@ -81,7 +86,7 @@ const calcularPagos = (monto, plazo, tna) => {
 };
 
 //----------------------------------------------------------------
-//funciones de calculos auxiliares
+//Declaro funciones de Cálculos Auxiliares
 const calculaInteres = (saldoDeuda, tMensual) => {
   interes = saldoDeuda * tMensual;
 };
