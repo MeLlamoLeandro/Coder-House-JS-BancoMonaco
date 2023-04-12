@@ -10,6 +10,7 @@ const selectDom = document.getElementById("selectCond");
 const buscarDom = document.getElementById("opcionesBuscar");
 const infoDom = document.getElementById("infoPrestamo");
 const resultDom = document.getElementById("resultado");
+const volverArribaBtn = document.querySelector('.scroll-up-btn');
 
 //Inicia Simulacion -------------------------------------------------------------------------------------------
 simulacionDom.addEventListener("submit", iniciaSimulacion);
@@ -201,8 +202,8 @@ const mostrarResultados = (pagos) => {
   }
 
   tabla += `</tbody></table></div>
-  <a href="./pages/solicitar.html" class="btn btn-success">Solicitar</a>
-  <button type="button" class="btn btn-warning" onclick="borrarTodo()">Volver a Simular</button>`;
+  <a href="./pages/solicitar.html" class="btn btn-success fw-bold">Solicitar</a>
+  <button type="button" class="btn btn-dark fw-bold" onclick="borrarTodo()">Volver a Simular</button>`;
 
   resultDom.innerHTML = tabla;
 };
@@ -215,7 +216,7 @@ const mostrarFxBusqueda = () => {
           <label class="fw-bold">Buscar resultados ingresando un N° de Cuota:
               <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
           </label>
-          <button id="btnBcuota" class="btn text-bg-warning fw-bold">Buscar</button>
+          <button id="btnBcuota" class="btn text-bg-dark fw-bold">Buscar</button>
           <button id="btnBorraBcuota" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaCuota"></div>
@@ -225,7 +226,7 @@ const mostrarFxBusqueda = () => {
           <label class="fw-bold">Buscar resultados por Vencimiento:
               <input type="text" class="form-control" id="bFecha" placeholder="mm-yyyy">
           </label>
-          <button id="btnBfecha" class="btn text-bg-warning fw-bold">Buscar</button>
+          <button id="btnBfecha" class="btn text-bg-dark fw-bold">Buscar</button>
           <button id="btnBorraBfecha" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaFecha"></div>
@@ -401,7 +402,6 @@ function scrollTop() {
 //----------------------------------
 
 
-const volverArribaBtn = document.querySelector('.scroll-up-btn');
 
 window.addEventListener('scroll', () => {
   /* if (window.scrollY > 200) {
