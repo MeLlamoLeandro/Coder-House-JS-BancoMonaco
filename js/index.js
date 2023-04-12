@@ -201,7 +201,7 @@ const mostrarResultados = (pagos) => {
   }
 
   tabla += `</tbody></table></div>
-  <button type="button" class="btn btn-success">Solicitar</button>
+  <a href="./pages/solicitar.html" class="btn btn-success">Solicitar</a>
   <button type="button" class="btn btn-warning" onclick="borrarTodo()">Volver a Simular</button>`;
 
   resultDom.innerHTML = tabla;
