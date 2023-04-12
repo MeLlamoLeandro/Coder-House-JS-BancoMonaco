@@ -10,7 +10,7 @@ const selectDom = document.getElementById("selectCond");
 const buscarDom = document.getElementById("opcionesBuscar");
 const infoDom = document.getElementById("infoPrestamo");
 const resultDom = document.getElementById("resultado");
-const volverArribaBtn = document.querySelector('.scroll-up-btn');
+const volverArribaBtn = document.querySelector(".scroll-up-btn");
 
 //Inicia Simulacion -------------------------------------------------------------------------------------------
 simulacionDom.addEventListener("submit", iniciaSimulacion);
@@ -146,9 +146,9 @@ const mostrarInfoPrestamo = (info) => {
               <td class="p-2">Tasa Efectiva Mensual</td>
           </tr>
           <tr>
-              <td class="border-bottom text-center"><strong>$${
+              <td class="border-bottom text-center"><strong>$${separadorMiles(
                 info.monto
-              }</strong></td>
+              )}</strong></td>
               <td class="border-bottom text-center"><strong>${
                 info.plazo
               } Cuotas</strong></td>
@@ -192,12 +192,12 @@ const mostrarResultados = (pagos) => {
     tabla += `<tr>
                             <td>${pagos[i].cuotaN}</td>
                             <td>${pagos[i].vtoCuota}</td>
-                            <td>$${pagos[i].saldoDeuda}</td>
-                            <td>$${pagos[i].cuotaPura}</td>
-                            <td>$${pagos[i].capital}</td>
-                            <td>$${pagos[i].intereses}</td>
-                            <td>$${pagos[i].iva}</td>
-                            <td>$${pagos[i].cuotaTotal}</td>
+                            <td>$${separadorMiles(pagos[i].saldoDeuda)}</td>
+                            <td>$${separadorMiles(pagos[i].cuotaPura)}</td>
+                            <td>$${separadorMiles(pagos[i].capital)}</td>
+                            <td>$${separadorMiles(pagos[i].intereses)}</td>
+                            <td>$${separadorMiles(pagos[i].iva)}</td>
+                            <td>$${separadorMiles(pagos[i].cuotaTotal)}</td>
                         </tr>`;
   }
 
@@ -287,12 +287,12 @@ const buscarCuota = (i) => {
         <tr>
           <td>${pagos[i].cuotaN}</td>
           <td>${pagos[i].vtoCuota}</td>
-          <td>$${pagos[i].saldoDeuda}</td>
-          <td>$${pagos[i].cuotaPura}</td>
-          <td>$${pagos[i].capital}</td>
-          <td>$${pagos[i].intereses}</td>
-          <td>$${pagos[i].iva}</td>
-          <td>$${pagos[i].cuotaTotal}</td>
+          <td>$${separadorMiles(pagos[i].saldoDeuda)}</td>
+          <td>$${separadorMiles(pagos[i].cuotaPura)}</td>
+          <td>$${separadorMiles(pagos[i].capital)}</td>
+          <td>$${separadorMiles(pagos[i].intereses)}</td>
+          <td>$${separadorMiles(pagos[i].iva)}</td>
+          <td>$${separadorMiles(pagos[i].cuotaTotal)}</td>
         </tr>
     </tbody>
   </table>
@@ -322,12 +322,12 @@ const buscarFecha = () => {
         <tr>
           <td>${filtroFecha[0].cuotaN}</td>
           <td>${filtroFecha[0].vtoCuota}</td>
-          <td>$${filtroFecha[0].saldoDeuda}</td>
-          <td>$${filtroFecha[0].cuotaPura}</td>
-          <td>$${filtroFecha[0].capital}</td>
-          <td>$${filtroFecha[0].intereses}</td>
-          <td>$${filtroFecha[0].iva}</td>
-          <td>$${filtroFecha[0].cuotaTotal}</td>
+          <td>$${separadorMiles(filtroFecha[0].saldoDeuda)}</td>
+          <td>$${separadorMiles(filtroFecha[0].cuotaPura)}</td>
+          <td>$${separadorMiles(filtroFecha[0].capital)}</td>
+          <td>$${separadorMiles(filtroFecha[0].intereses)}</td>
+          <td>$${separadorMiles(filtroFecha[0].iva)}</td>
+          <td>$${separadorMiles(filtroFecha[0].cuotaTotal)}</td>
         </tr>
     </tbody>
   </table>
@@ -401,41 +401,30 @@ function scrollTop() {
 
 //----------------------------------
 
-
-
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
   /* if (window.scrollY > 200) {
     volverArribaBtn.style.display = 'block';
   } else {
     volverArribaBtn.style.display = 'none';
   } */
   if (window.scrollY > 200) {
-    volverArribaBtn.classList.add('mostrar');
+    volverArribaBtn.classList.add("mostrar");
   } else {
-    volverArribaBtn.classList.remove('mostrar');
+    volverArribaBtn.classList.remove("mostrar");
   }
-  
 });
 
-volverArribaBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+volverArribaBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 //---------------------FX SEPARADOR DE MILES
 
-// separador de miles en moneda
-function separadorMiles(numero){
-  let partesNumero = numero.toString().split('.');
+// separador de miles en Pesos Argentinos
+function separadorMiles(numero) {
+  let partesNumero = numero.toString().split(".");
 
-  partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-  return partesNumero.join(',');
+  return partesNumero.join(",");
 }
-
-//formateo el input del monto a simular
-/* inputMontoDom.addEventListener("input", ()=>{
-  newValue= separadorMiles(inputMontoDom.value);
-  
-   inputMontoDom.value= newValue;
-  
-}) */
