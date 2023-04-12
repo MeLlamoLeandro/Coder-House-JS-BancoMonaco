@@ -11,17 +11,8 @@ function cargarCondiciones() {
     .catch((error) => console.error(error));
 }
 
-// cargo las condiciones desde el archivo condiciones.json usando el método Fetch
-/* fetch("js/condiciones.json")
-  .then((response) => response.json())
-  .then((data) => {
-    renderSelect(data);
-  })
-  .catch((error) => console.error(error));
- */
-//cargo las condiciones desde el json en el SELECT #selectCond del HTML
+//cargo las CONDICIONES del JSON en el DOM label SELECT #selectCond del HTML
 function renderSelect(x) {
-  /* const opciones = cargarCondicionesLS(); */
   const opciones = x;
   const select = document.getElementById("selectCond");
   let salida = "";

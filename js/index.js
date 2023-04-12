@@ -133,7 +133,7 @@ const guardaSimulacionLS = (pagos) => {
 const mostrarInfoPrestamo = (info) => {
   infoDom.innerHTML = "";
   let tablaInfo = `
-  <table class="background-none">
+  <table class="table-responsive background-none m-1 p-1">
       <tbody>
           <tr>
               <td colspan="5" class="border-bottom p-2 fs-4"><strong>Información del Préstamo</strong></td>

@@ -1,27 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap');
+
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
-.banner{
-  height: 400px;
-  width: 100%;
-  background-image:url(../img/banner_1360x400.jpg) ;
-}
 
-main{
+
+
+body,main,footer {
   overflow-x: hidden;
 }
+
+.banner-img{
+  height: 400px;
+  object-fit: cover;
+}
+
+
 /*elimino arrows del input*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
-input[type=number] { -moz-appearance:textfield; }
 
-/* Boton Volver arriba*/
+
+/* Boton volverArribaBtn*/
 .scroll-up-btn {
   position: fixed;
   height: 45px;
@@ -42,7 +49,8 @@ input[type=number] { -moz-appearance:textfield; }
 .scroll-up-btn.mostrar {
   bottom: 100px;
   opacity: 1;
-  pointer-events: auto; }
+  pointer-events: auto;
+}
 
 .scroll-up-btn:hover {
   color: grey!important;
