@@ -15,7 +15,7 @@ const resultDom = document.getElementById("resultado");
 simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
-  
+
   monto = parseInt(iMontoDom.value);
   plazo = parseInt(condiciones[selectDom.value].plazo);
   tna = parseFloat(condiciones[selectDom.value].tna);
@@ -212,20 +212,20 @@ const mostrarFxBusqueda = () => {
   buscarDom.innerHTML = `
   <div class="m-4">
       <div id="stopScroll">
-          <label>Buscar resultados ingresando un N° de Cuota:
+          <label class="fw-bold">Buscar resultados ingresando un N° de Cuota:
               <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
           </label>
-          <button id="btnBcuota" class="btn text-bg-warning">Buscar</button>
+          <button id="btnBcuota" class="btn text-bg-warning fw-bold">Buscar</button>
           <button id="btnBorraBcuota" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaCuota"></div>
   </div>
   <div class="form-group m-4">
       <div>
-          <label >Buscar resultados por Vencimiento:
+          <label class="fw-bold">Buscar resultados por Vencimiento:
               <input type="text" class="form-control" id="bFecha" placeholder="mm-yyyy">
           </label>
-          <button id="btnBfecha" class="btn text-bg-warning">Buscar</button>
+          <button id="btnBfecha" class="btn text-bg-warning fw-bold">Buscar</button>
           <button id="btnBorraBfecha" type="button" class="btn btn-danger">Borrar</button>
       </div>
       <div id="divBusquedaFecha"></div>
@@ -337,8 +337,6 @@ const buscarFecha = () => {
 //Renders
 const info = JSON.parse(localStorage.getItem("info")) || [];
 
-
-
 function cargarInfoLS() {
   return JSON.parse(localStorage.getItem("info")) || [];
 }
@@ -399,3 +397,27 @@ function scrollTop() {
     behavior: "smooth",
   });
 }
+
+//----------------------------------
+
+
+const volverArribaBtn = document.querySelector('.scroll-up-btn');
+
+window.addEventListener('scroll', () => {
+  /* if (window.scrollY > 200) {
+    volverArribaBtn.style.display = 'block';
+  } else {
+    volverArribaBtn.style.display = 'none';
+  } */
+  if (window.scrollY > 200) {
+    volverArribaBtn.classList.add('mostrar');
+  } else {
+    volverArribaBtn.classList.remove('mostrar');
+  }
+  
+});
+
+volverArribaBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+

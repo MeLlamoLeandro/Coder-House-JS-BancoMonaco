@@ -18,3 +18,52 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=number] { -moz-appearance:textfield; }
+
+/*scroll-up-btn
+.scroll-up-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
+  
+}
+
+.scroll-up-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+*/
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  /* background: rgba(0, 0, 0, 0.048); */
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  /* color: #fff; */
+  z-index: 9999;
+  font-size: 50px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease; }
+
+.scroll-up-btn.mostrar {
+  bottom: 100px;
+  opacity: 1;
+  pointer-events: auto; }
+
+.scroll-up-btn:hover {
+  filter: brightness(90%); }
