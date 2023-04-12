@@ -5,7 +5,7 @@ let plazo;
 let tna;
 //Acceso al DOM del simulador
 let simulacionDom = document.getElementById("formsimulador");
-const iMontoDom = document.getElementById("monto");
+const inputMontoDom = document.getElementById("monto");
 const selectDom = document.getElementById("selectCond");
 const buscarDom = document.getElementById("opcionesBuscar");
 const infoDom = document.getElementById("infoPrestamo");
@@ -17,7 +17,7 @@ simulacionDom.addEventListener("submit", iniciaSimulacion);
 function iniciaSimulacion(event) {
   event.preventDefault();
 
-  monto = parseInt(iMontoDom.value);
+  monto = parseInt(inputMontoDom.value);
   plazo = parseInt(condiciones[selectDom.value].plazo);
   tna = parseFloat(condiciones[selectDom.value].tna);
 
@@ -420,3 +420,22 @@ window.addEventListener('scroll', () => {
 volverArribaBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+//---------------------FX SEPARADOR DE MILES
+
+// separador de miles en moneda
+function separadorMiles(numero){
+  let partesNumero = numero.toString().split('.');
+
+  partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return partesNumero.join(',');
+}
+
+//formateo el input del monto a simular
+/* inputMontoDom.addEventListener("input", ()=>{
+  newValue= separadorMiles(inputMontoDom.value);
+  
+   inputMontoDom.value= newValue;
+  
+}) */
