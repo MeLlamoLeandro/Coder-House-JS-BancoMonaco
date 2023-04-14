@@ -20,7 +20,7 @@
     </div>
     <!-- header -->
     <header>
-        <div class="container-fluid  sticky-top  bg-dark" style="color: #1c1c1d" data-bs-theme="dark">
+        <div class="container-fluid  fixed-top  bg-dark" style="color: #1c1c1d" data-bs-theme="dark">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
@@ -42,23 +42,27 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
-                    <img src="./img/banner_1360x400.jpg" alt="" class="banner-img img-fluid">
-                </div>
+                <div class="banner-img col-12 mt-5 pt-4"></div>
             </div>
         </div>
     </header>
     <!-- main -->
     <main id="top" >
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="h1Logo m-4 p-4">
-                <img class="img-fluid" src="./img/logo2-removebg-preview.png" alt="Banco Mónaco">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="h1Logo m-4 p-4">
+                        <img class="img-fluid" src="./img/logo2-removebg-preview.png" alt="Banco Mónaco">
+                    </div>
+                </div>
+
             </div>
         </div>
+            
         
-        <div class="container fluid">      
+        <div class="container">      
             <div class="row">
                 <div id="continua" class="col-12 m-4"></div>
                 <div class="col12 col-sm-6   m-2 m-sm-0 flex-column">
@@ -110,9 +114,11 @@
     </main>
     <!-- inicio footer -->
     <footer class="container-fluid bg-dark py-3 text-white py-3">
-        <div class="copyright">
-            <p class="lead m-2">Disclaimer: El presente desarrollo no constituye oferta del Banco Mónaco, sólo tiene carácter educativo e informativo para el interesado.</p>
-            <span>&copy 2023 - by Leandro Giffoni</span>
+        <div class="row">
+            <div class="copyright">
+                <p class="lead m-2">Disclaimer: El presente desarrollo no constituye oferta del Banco Mónaco, sólo tiene carácter educativo e informativo para el interesado.</p>
+                <span>&copy 2023 - by Leandro Giffoni</span>
+            </div>
         </div>
     </footer>
     <!-- Bootstrap Script -->

@@ -7,16 +7,17 @@
     font-family: 'Roboto Flex', sans-serif;
 }
 
-
-
-
 body,main,footer {
   overflow-x: hidden;
 }
 
+
 .banner-img{
-  height: 400px;
-  object-fit: cover;
+  
+  position: relative;
+  background: url(../img/banner_1360x400.jpg) no-repeat center;
+  min-height: 400px;
+  
 }
 
 
