@@ -24,3 +24,7 @@ function renderSelect(x) {
 }
 
 cargarCondiciones();
+
+//faltaria libreria sweetalert de carga para la simulacion y talvez otra alerta
+//libreria moment con locale en spanish mexico
+//apis con cotizaciones

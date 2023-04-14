@@ -29,7 +29,7 @@ function iniciaSimulacion(event) {
   guardaSimulacionLS(pagos);
 
   const info = cargarInfoLS();
-  mostrarFxBusqueda();
+  habilitarFxBusqueda();
   mostrarInfoPrestamo(info);
   mostrarResultados(pagos);
   document.getElementById("continua").innerHTML = "";
@@ -52,16 +52,9 @@ const calcularPagos = (monto, plazo, tna) => {
       saldoDeuda = saldoDeuda - capital;
     }
 
-    //inicializo la fecha con el mes actual en formato "mm-yyyy"
-    const fecha = new Date();
-    let mesN = "";
-    fecha.setMonth(fecha.getMonth() + i);
-    if (fecha.getMonth() + 1 < 10) {
-      mesN = "0" + (fecha.getMonth() + 1);
-    } else {
-      mesN = fecha.getMonth() + 1;
-    }
-    const fechaCuota = `${mesN}-${fecha.getFullYear()}`;
+    // Obtener la fecha de pago en formato "dd-mm-yyyy" usando LUXON
+    const fecha = DateTime.local().plus({ months: i });
+    const fechaCuota = fecha.toFormat("dd-MM-yyyy");
 
     // Invoco funciones de calulos auxiliares
     calculaInteres(saldoDeuda, tMensual);
@@ -112,7 +105,10 @@ const calculaTea = () => {
   tea = (Math.pow(1 + tem / 100, 12) - 1) * 100;
 };
 
-//----------------------------------------------------------------------------------
+//Funciones auxiliares a la simulacion
+//--------------------------------------------------------------------------
+
+//Funciones para administrar el LocalStorage
 const guardaInfoLS = () => {
   const info = {
     monto: monto,
@@ -129,7 +125,7 @@ const guardaSimulacionLS = (pagos) => {
   localStorage.setItem("pagos", JSON.stringify(pagos));
 };
 
-//funcion para mostar Informacion del Prestamo
+//Muestrar la Informacion del Prestamo
 const mostrarInfoPrestamo = (info) => {
   infoDom.innerHTML = "";
   let tablaInfo = `
@@ -168,7 +164,7 @@ const mostrarInfoPrestamo = (info) => {
   infoDom.innerHTML = tablaInfo;
 };
 //----------------------------------------------------------------------------------
-//funcion para mostar resultados
+//Mostrar los resultados de la simulacion en una tabla
 const mostrarResultados = (pagos) => {
   resultDom.innerHTML = "";
   let tabla = `<h2>Resultados de la Simulación</h2>
@@ -208,12 +204,12 @@ const mostrarResultados = (pagos) => {
   resultDom.innerHTML = tabla;
 };
 
-// mostrar funciones de busqueda
-const mostrarFxBusqueda = () => {
+// Habilitar funciones de busqueda
+const habilitarFxBusqueda = () => {
   buscarDom.innerHTML = `
   <div class="m-4">
       <div id="stopScroll">
-          <label class="fw-bold">Buscar resultados ingresando un N° de Cuota:
+          <label class="fw-bold">Buscar pagos ingresando un N° de Cuota:
               <input type="number" class="form-control" id="bCuota" placeholder="Cuota N°">
           </label>
           <button id="btnBcuota" class="btn text-bg-dark fw-bold">Buscar</button>
@@ -223,8 +219,8 @@ const mostrarFxBusqueda = () => {
   </div>
   <div class="form-group m-4">
       <div>
-          <label class="fw-bold">Buscar resultados por Vencimiento:
-              <input type="text" class="form-control" id="bFecha" placeholder="mm-yyyy">
+          <label class="fw-bold">Buscar pagos por Vencimiento:
+              <input type="date" class="form-control" id="fechaInput">
           </label>
           <button id="btnBfecha" class="btn text-bg-dark fw-bold">Buscar</button>
           <button id="btnBorraBfecha" type="button" class="btn btn-danger">Borrar</button>
@@ -233,32 +229,39 @@ const mostrarFxBusqueda = () => {
   </div>
   `;
 
+  //creo funciones de busqueda para los elementos recien creados
   //FX al hacer click en buscar Nro de cuota
   let bCuota = document.getElementById("bCuota");
-  let divBusquedaCuota = document.getElementById("divBusquedaCuota");
   let btnBcuota = document.getElementById("btnBcuota");
+
   btnBcuota.onclick = () => {
     buscarCuota(bCuota.value - 1);
   };
 
   //FX al hacer click en buscar por fecha de vencimiento
-  let bFecha = document.getElementById("bFecha");
-  let divBusquedaFecha = document.getElementById("divBusquedaFecha");
+  let fechaInput = document.getElementById("fechaInput");
   let btnBfecha = document.getElementById("btnBfecha");
+
   btnBfecha.onclick = () => {
+    let fechaLuxon = DateTime.fromISO(fechaInput.value);
+    let bFecha = fechaLuxon.toFormat("dd-MM-yyyy");
+
     const pagos = cargarSimulacionLS();
     //averiguo si existe la fecha en el array "pagos" con METODO SOME
-    const existeFecha = pagos.some((pagos) => pagos.vtoCuota === bFecha.value);
+    const existeFecha = pagos.some((pagos) => pagos.vtoCuota === bFecha);
     if (existeFecha == true) {
-      buscarFecha(bFecha.value);
+      buscarFecha(bFecha);
+    } else {
+      Swal.fire("La fecha de vencimiento no existe!");
     }
   };
 
+  //Borrar busqueda por Cuota
   document.getElementById("btnBorraBcuota").addEventListener("click", () => {
     const salida = document.getElementById("divBusquedaCuota");
     salida.innerHTML = "";
   });
-
+  //Borrar busqueda por Fecha
   document.getElementById("btnBorraBfecha").addEventListener("click", () => {
     const salida = document.getElementById("divBusquedaFecha");
     salida.innerHTML = "";
@@ -301,9 +304,9 @@ const buscarCuota = (i) => {
 
 //------------------------------------------------------------------------
 //FX busqueda por fecha de vencimiento utilizando el METODO FILTER
-const buscarFecha = () => {
+const buscarFecha = (bFecha) => {
   const pagos = cargarSimulacionLS();
-  const filtroFecha = pagos.filter((pagos) => pagos.vtoCuota == bFecha.value);
+  const filtroFecha = pagos.filter((pagos) => pagos.vtoCuota == bFecha);
   divBusquedaFecha.innerHTML = `
   <table class="table table-striped table-sm text-center">
     <thead>
@@ -359,7 +362,7 @@ function renderResultados() {
     if (pagos.length > 0) {
       mostrarResultados(pagos);
     }
-    mostrarFxBusqueda();
+    habilitarFxBusqueda();
     mostrarInfoPrestamo(info);
   }
 }
