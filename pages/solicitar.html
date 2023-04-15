@@ -63,233 +63,164 @@
 <!-- inicio solicitud -->
 <section>
     <div class="container">
-        <div class="row">
-            <form action="" class="solicitud">
-
-                    <div class="row g-5">
-                      <div class="col-md-5 col-lg-4 order-md-last">
-                        <h4 class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="text-primary">Crédito Seleccionado</span></h4>
-                        <ul class="list-group mb-3">
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Monto del Préstamo</h6>
-                              <small class="text-body-secondary">Pesos</small>
-                            </div>
-                            <span class="text-body-secondary ">$${info.monto}</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Plazo</h6>
-                              <small class="text-body-secondary">Meses</small>
-                            </div>
-                            <span class="text-body-secondary ">$${info.plazo}</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Tasa Nominal Anual</h6>
-                            </div>
-                            <span class="text-body-secondary ">$${info.tna}</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Tasa Efectiva Anual</h6>
-                            </div>
-                            <span class="text-body-secondary ">$${info.tea.toFixed(2)}</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Tasa Efectiva Mensual</h6>
-                            </div>
-                            <span class="text-body-secondary ">$${info.tem.toFixed(2)}</span>
-                          </li>
-                          
-
-
-
-                          <li class="list-group-item d-flex justify-content-between lh-sm">
-                            <div>
-                              <h6 class="my-0">Third item</h6>
-                              <small class="text-body-secondary">Brief description</small>
-                            </div>
-                            <span class="text-body-secondary">$5</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
-                            <div class="text-success">
-                              <h6 class="my-0">Promo code</h6>
-                              <small>EXAMPLECODE</small>
-                            </div>
-                            <span class="text-success">−$5</span>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between">
-                            <span>Total (USD)</span>
-                            <strong>$20</strong>
-                          </li>
-                        </ul>
-                
-                        <form class="card p-2">
-                          <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
-                          </div>
-                        </form>
+        <div class="row">               
+          <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary-emphasis">Crédito Seleccionado</span></h4>
+              <div class="credSelect">
+                <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Monto del Préstamo</h6>
+                        <small class="text-body-secondary">Pesos</small>
+                    </div>
+                    <span class="text-body-secondary ">$${info.monto}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Plazo</h6>
+                      <small class="text-body-secondary">Meses</small>
+                    </div>
+                    <span class="text-body-secondary ">$${info.plazo}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Tasa Nominal Anual</h6>
+                    </div>
+                    <span class="text-body-secondary ">$${info.tna}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Tasa Efectiva Anual</h6>
+                    </div>
+                    <span class="text-body-secondary ">$${info.tea.toFixed(2)}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                      <h6 class="my-0">Tasa Efectiva Mensual</h6>
+                    </div>
+                    <span class="text-body-secondary ">$${info.tem.toFixed(2)}</span>
+                  </li>
+              </ul>
+            </div>
+              <!-- Borrar Info -->
+              <div class="card p-2">
+                <div class="input-group d-flex justify-content-center">
+                  <a  href="../index.html"  class="btn btn-outline-dark">Volver</a>
+                  <button  class="btn btn-outline-danger" onclick="borrarSolicitar()" title="Borrar Simulacion">Borrar</button>
+                </div>
+              </div>
+            </div>
+            <!-- Formulario de contacto -->
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">DATOS DE CONTACTO</h4>
+                <form class="needs-validation" novalidate>
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="apellido" class="form-label">Apellido</label>
+                      <input type="text" class="form-control" id="apellido" placeholder="Ingresá el apellido" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresa el apellido.
                       </div>
-                      <div class="col-md-7 col-lg-8">
-                        <h4 class="mb-3">Billing address</h4>
-                        <form class="needs-validation" novalidate>
-                          <div class="row g-3">
-                            <div class="col-sm-6">
-                              <label for="firstName" class="form-label">First name</label>
-                              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                              <div class="invalid-feedback">
-                                Valid first name is required.
-                              </div>
-                            </div>
-                
-                            <div class="col-sm-6">
-                              <label for="lastName" class="form-label">Last name</label>
-                              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                              <div class="invalid-feedback">
-                                Valid last name is required.
-                              </div>
-                            </div>
-                
-                            <div class="col-12">
-                              <label for="username" class="form-label">Username</label>
-                              <div class="input-group has-validation">
-                                <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required>
-                              <div class="invalid-feedback">
-                                  Your username is required.
-                                </div>
-                              </div>
-                            </div>
-                
-                            <div class="col-12">
-                              <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                              <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                              </div>
-                            </div>
-                
-                            <div class="col-12">
-                              <label for="address" class="form-label">Address</label>
-                              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                              <div class="invalid-feedback">
-                                Please enter your shipping address.
-                              </div>
-                            </div>
-                
-                            <div class="col-12">
-                              <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-                              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                            </div>
-                
-                            <div class="col-md-5">
-                              <label for="country" class="form-label">Country</label>
-                              <select class="form-select" id="country" required>
-                                <option value="">Choose...</option>
-                                <option>United States</option>
-                              </select>
-                              <div class="invalid-feedback">
-                                Please select a valid country.
-                              </div>
-                            </div>
-                
-                            <div class="col-md-4">
-                              <label for="state" class="form-label">State</label>
-                              <select class="form-select" id="state" required>
-                                <option value="">Choose...</option>
-                                <option>California</option>
-                              </select>
-                              <div class="invalid-feedback">
-                                Please provide a valid state.
-                              </div>
-                            </div>
-                
-                            <div class="col-md-3">
-                              <label for="zip" class="form-label">Zip</label>
-                              <input type="text" class="form-control" id="zip" placeholder="" required>
-                              <div class="invalid-feedback">
-                                Zip code required.
-                              </div>
-                            </div>
-                          </div>
-                
-                          <hr class="my-4">
-                
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="same-address">
-                            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                          </div>
-                
-                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">Save this information for next time</label>
-                          </div>
-                
-                          <hr class="my-4">
-                
-                          <h4 class="mb-3">Payment</h4>
-                
-                          <div class="my-3">
-                            <div class="form-check">
-                              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                              <label class="form-check-label" for="credit">Credit card</label>
-                            </div>
-                            <div class="form-check">
-                              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                              <label class="form-check-label" for="debit">Debit card</label>
-                            </div>
-                            <div class="form-check">
-                              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                              <label class="form-check-label" for="paypal">PayPal</label>
-                            </div>
-                          </div>
-                
-                          <div class="row gy-3">
-                            <div class="col-md-6">
-                              <label for="cc-name" class="form-label">Name on card</label>
-                              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                              <small class="text-body-secondary">Full name as displayed on card</small>
-                              <div class="invalid-feedback">
-                                Name on card is required
-                              </div>
-                            </div>
-                
-                            <div class="col-md-6">
-                              <label for="cc-number" class="form-label">Credit card number</label>
-                              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                              <div class="invalid-feedback">
-                                Credit card number is required
-                              </div>
-                            </div>
-                
-                            <div class="col-md-3">
-                              <label for="cc-expiration" class="form-label">Expiration</label>
-                              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                              <div class="invalid-feedback">
-                                Expiration date required
-                              </div>
-                            </div>
-                
-                            <div class="col-md-3">
-                              <label for="cc-cvv" class="form-label">CVV</label>
-                              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                              <div class="invalid-feedback">
-                                Security code required
-                              </div>
-                            </div>
-                          </div>
-                
-                          <hr class="my-4">
-                
-                          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombre" placeholder="Ingresá el nombre" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresa el nombre.
                       </div>
                     </div>
 
+                    <div class="col-md-3">
+                      <label for="tipoDoc" class="form-label">Tipo</label>
+                      <select class="form-select" id="tipoDoc" required>
+                        <option value="">Tipo</option>
+                        <option value="1">DNI</option>
+                        <option value="2">CI</option>
+                        <option value="3">LC</option>
+                        <option value="4">LE</option>
+                        <option value="5">PAS</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="documento" class="form-label">Documento</label>
+                      <input type="number" class="form-control" id="documento" placeholder="Ingresá el número" required>
+                      <div class="invalid-feedback">
+                        Ingresá el número.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="fecNac" class="form-label">Fecha de Nacimiento</label>
+                      <input type="date" class="form-control" id="fecNac" placeholder="Ingresá la fecha (DD/MM/AAAA)" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresá la fecha (DD/MM/AAAA).
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="nombre@mail.com" required>
+                      <div class="invalid-feedback">
+                        Ingresá el email.
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label for="tel" class="form-label">Teléfono</label>
+                      <input type="number" class="form-control" id="tel" placeholder="Ingresá el teléfono (11 44445555)" required>
+                      <div class="invalid-feedback">
+                        Ingresá el teléfono.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="cuil" class="form-label">CUIL</label>
+                      <input type="number" class="form-control" id="cuil" placeholder="Ingresá el CUIL (11-11111111-1)" required>
+                      <div class="invalid-feedback">
+                        Ingresá el CUIL.
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="genero" class="form-label">Género</label>
+                      <select class="form-select" id="genero" required>
+                        <option value="">Seleccione</option>
+                        <option value="f">Femenino</option>
+                        <option value="m">Masculino</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="estCivil" class="form-label">Estado Civil</label>
+                      <select class="form-select" id="estCivil" required>
+                        <option value="">Seleccione</option>
+                        <option value="Casado C-Comu Bienes">Casado C/Comu Bienes</option>                          
+                        <option value="Casado C-Sepa Bienes">Casado C/Sepa Bienes</option>                          
+                        <option value="Conviviente C-Pacto">Conviviente C/Pacto</option>                          
+                        <option value="Conviviente S-Pacto">Conviviente S/Pacto</option>                          
+                        <option value="Divorciado-a">Divorciado/a</option>                          
+                        <option value="Soltero-a">Soltero/a</option>                          
+                        <option value="Viudo-a">Viudo/a</option>                          
+                      </select>
+                    </div>
+              <div class="col-md-6">
+                <label for="ingreso" class="form-label">Ingresos Netos</label>
+                <input type="number" class="form-control" id="ingreso" placeholder="Ingresá el valor" required>
+                <div class="invalid-feedback">
+                  Ingresá el valor.
+                </div>
+              </div>
+
+              <hr class="my-2">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkSueldo">
+                <label class="form-check-label" for="checkSueldo">Quiero acreditar mi sueldo</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkCliente">
+                <label class="form-check-label" for="checkCliente">Soy cliente del banco</label>
+              </div>
+              <hr class="my-2">
+            <button class="w-100 btn btn-success btn-lg" type="submit">Enviar</button>                
         </form>
     </div>
 </div>  
@@ -310,7 +241,8 @@
 <!-- Sweet Alert Script -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 <!-- Mis Scripts -->
-<script src="./js/creditos.js"></script>
-<script src="./js/index.js"></script>
+<script src="../js/info.js"></script>
+<script src="../js/solicitar.js"></script>
+
 </body>
 </html>
