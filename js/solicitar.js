@@ -4,7 +4,7 @@ let cardInfo = document.getElementById("credSelect");
 function credSelect() {
   const info = cargarInfoLS();
   if (info == "") {
-    salida = "";
+    salida = `<p class="text-danger">Crédito sin simular</p>`;
   } else {
     salida = `<ul class="list-group mb-3">
                           <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -45,7 +45,7 @@ function credSelect() {
                             <div>
                               <h6 class="my-0">Tasa Efectiva Mensual</h6>
                             </div>
-                            <span class="text-body-secondary ">$${info.tem.toFixed(
+                            <span class="text-body-secondary ">${info.tem.toFixed(
                               2
                             )} %</span>
                           </li>
@@ -54,22 +54,42 @@ function credSelect() {
   cardInfo.innerHTML = salida;
 }
 
-//Card Credito Seleccionado
 
-function solicitar() {
+//Boton Borrar
+function borrarSolicitar() {
+  localStorage.removeItem("pagos");
+  localStorage.removeItem("info");
+  credSelect();
+}
+
+
+// Validador de formulario de Bootstrap
+( () => {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation')
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', async event => {//uso async-await
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }else { 
+        await alertaEnvio(event) //uso await para esperar el cierre de la Alerta de Envio
+      }
+      form.classList.add('was-validated')
+      
+    }, false)
+  })
+})()
+
+
+async function alertaEnvio(event) {
+  event.preventDefault();
   Swal.fire({
-    timer: 10000,
     icon: "success",
     title: "Tu solicitud ha sido enviada",
     text: "Pronto nos contactaremos, muchas gracias!",
     footer: '<a href="../index.html">Volver a Simular</a>',
   });
-}
-//Borrar
-function borrarSolicitar() {
-  localStorage.removeItem("pagos");
-  localStorage.removeItem("info");
-  document.getElementById("credSelect").innerHTML = `<p class="text-danger">Crédito sin simular</p>`;
 }
 
 credSelect();

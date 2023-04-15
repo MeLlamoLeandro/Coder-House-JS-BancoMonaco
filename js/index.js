@@ -5,7 +5,7 @@ let plazo;
 let tna;
 let diaVenc;
 //Acceso al DOM del simulador
-let simulacionDom = document.getElementById("formsimulador");
+let simulacionDom = document.getElementById("formSimulador");
 const inputMontoDom = document.getElementById("monto");
 const selectDom = document.getElementById("selectCond");
 const buscarDom = document.getElementById("opcionesBuscar");
