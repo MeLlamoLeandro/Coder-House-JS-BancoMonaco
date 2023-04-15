@@ -67,43 +67,9 @@
           <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
               <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary-emphasis">Crédito Seleccionado</span></h4>
-              <div class="credSelect">
-                <ul class="list-group mb-3">
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Monto del Préstamo</h6>
-                        <small class="text-body-secondary">Pesos</small>
-                    </div>
-                    <span class="text-body-secondary ">$${info.monto}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Plazo</h6>
-                      <small class="text-body-secondary">Meses</small>
-                    </div>
-                    <span class="text-body-secondary ">$${info.plazo}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Tasa Nominal Anual</h6>
-                    </div>
-                    <span class="text-body-secondary ">$${info.tna}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Tasa Efectiva Anual</h6>
-                    </div>
-                    <span class="text-body-secondary ">$${info.tea.toFixed(2)}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                      <h6 class="my-0">Tasa Efectiva Mensual</h6>
-                    </div>
-                    <span class="text-body-secondary ">$${info.tem.toFixed(2)}</span>
-                  </li>
-              </ul>
-            </div>
+              <span class="text-primary-emphasis">Crédito Seleccionado</span></h4>
+              <!-- Card Credito Seleccionado -->
+              <div id="credSelect"></div>
               <!-- Borrar Info -->
               <div class="card p-2">
                 <div class="input-group d-flex justify-content-center">
