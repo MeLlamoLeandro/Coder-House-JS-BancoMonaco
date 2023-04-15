@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto Flex', sans-serif;
+    text-decoration: none !important;
 }
 
 body,main,footer {
@@ -13,12 +14,11 @@ body,main,footer {
 
 
 .banner-img{
-  
   position: relative;
   background: url(../img/banner_1360x400.jpg) no-repeat center;
   min-height: 400px;
-  
 }
+
 
 
 /*elimino arrows del input*/
