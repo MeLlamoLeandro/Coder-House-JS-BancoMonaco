@@ -8,7 +8,7 @@
 Proyecto final del curso JavaScript de CoderHouse, modelo de sitio web de una entidad bancaria llamada "Banco Monaco", donde se puede simular un prestamo personal y solicitarlo Online.
 
 Para realizar este proyecto en Javascript se empleo el uso de lo siguiente:
-<div>
+<div align = "left">
   <ul>
     <il>Ciclos e iteraciones</il>
     <il>Funciones</il>
