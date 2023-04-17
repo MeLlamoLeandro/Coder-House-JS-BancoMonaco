@@ -1,7 +1,6 @@
 # Banco Mónaco
 <div id = "header" align = "center">  
-  <img src="https://mellamoleandro.github.io/ProyectoFinalGiffoni//blob/master/img/logo2-removebg-preview?raw=true" width="100"/>
-  <img src="  blob/master/img/logo2-removebg-preview?raw=true" width="100"/>
+  <img src="https://mellamoleandro.github.io/ProyectoFinalGiffoni/img/logo2-removebg-preview.png?raw=true" width="100"/>
 </div>
 
 ## Descripción:
