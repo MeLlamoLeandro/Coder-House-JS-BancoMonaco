@@ -113,7 +113,7 @@ const calculaPrimVenc = (pagos) => {
 };
 
 const calculaUltVenc = (pagos) => {
-  const i = pagos.length -1;
+  const i = pagos.length - 1;
   ultVenc = pagos[i].vtoCuota;
 };
 
@@ -242,7 +242,7 @@ const habilitarFxBusqueda = () => {
           <button id="btnBcuota" class="btn text-bg-dark fw-bold  m-1">Buscar</button>
           <button id="btnBorraBcuota" type="button" class="btn btn-danger  m-1">Borrar</button>
       </div>
-      <div id="divBusquedaCuota" class="col-11 m-2"></div>
+      <div id="divBusquedaCuota" class="table-responsive col-11 m-2"></div>
   </div>
   <div class="form-group m-4">
       <div>
@@ -252,7 +252,7 @@ const habilitarFxBusqueda = () => {
           <button id="btnBfecha" class="btn text-bg-dark fw-bold m-1">Buscar</button>
           <button id="btnBorraBfecha" type="button" class="btn btn-danger m-1">Borrar</button>
       </div>
-      <div id="divBusquedaFecha" class="col-11 m-2"></div>
+      <div id="divBusquedaFecha" class="table-responsive col-11 m-2"></div>
   </div>
   `;
 
@@ -381,7 +381,6 @@ const buscarFecha = (bFecha) => {
   `;
 };
 
-
 //-----------------------------------------
 //Borrar Todo
 function borrarTodo() {
@@ -409,7 +408,7 @@ function scrollTop() {
     behavior: "smooth",
   });
 }
-""
+("");
 //Mostrar boton "Volver Arriba"" al scrollear el sitio
 window.addEventListener("scroll", () => {
   if (window.scrollY > 200) {
@@ -422,5 +421,3 @@ window.addEventListener("scroll", () => {
 volverArribaBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
-
-

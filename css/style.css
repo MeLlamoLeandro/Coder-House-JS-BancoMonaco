@@ -12,23 +12,6 @@ body,main,footer {
   overflow-x: hidden;
 }
 
-
-.banner-img{
-  position: relative;
-  background: url(../img/banner_1360x400.jpg) no-repeat center;
-  min-height: 400px;
-}
-
-
-
-/*elimino arrows del input*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-
 /* Boton volverArribaBtn*/
 .scroll-up-btn {
   position: fixed;
@@ -54,5 +37,5 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .scroll-up-btn:hover {
-  color: grey!important;
+  color:#696969!important;
 }

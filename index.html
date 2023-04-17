@@ -42,15 +42,17 @@
                     </div>
                 </div>
             </nav>
+            <!-- marquesina con cotizaciones -->
             <div id="cotizaciones" class="row bg-light d-flex justify-content-center"></div>
         </div>
         
-        <div class="container-fluid">
+        <div class="container-fluid pt-5">
             <div class="row">
-                <div class="banner-img col-12 mt-5 pt-4"></div>
+                <div class="banner-img col-12 mt-5">
+                    <img src="./img/banner_1360x400.jpg" alt="banner" class="img-fluid w-100" style="object-fit: cover;">
+                </div>
             </div>
         </div>
-        
     </header>
     <!-- main -->
     <main id="top" >
@@ -69,7 +71,7 @@
         <div class="container">      
             <div class="row">
                 <div id="continua" class="col-12 m-4"></div>
-                <div class="col12 col-sm-6   m-2 m-sm-0 flex-column">
+                <div class="col-12 col-md-6 mb-1 flex-column">
                     <h3>¿Querés un préstamo con acreditación inmediata? Simulá el tuyo y solicitalo 100% online.</h3>
                     <ul>
                         <li>Para remodelar o equipar tu casa, emprender un negocio o lo que te propongas. ¡Concretá tu proyecto con <strong>la financiación más conveniente!  </strong></li>
@@ -82,7 +84,7 @@
                         <a href="./pages/solicitar.html"  id="solicitar"   class="btn btn-success fw-bold">Solicitar</a>
                     </div>
                 </div>
-                <div class="col12 col-sm-6 bg-secondary m-2 m-sm-0 p-3 text-white" style="border-radius: 10px;">
+                <div class="col-12 col-md-6 bg-secondary mb-1 p-3 text-white" style="border-radius: 10px;">
                     <h2 class="text-center">Simula tu Prestamo Personal</h2>
                     <!-- Formulario de Simulador -->
                     <form id="formSimulador">
@@ -91,7 +93,7 @@
                                 <div class="d-flex flex-column align-items-center justify-content-center flex-wrap">
                                     <div class="p-2 ">
                                         <label >Monto del préstamo:
-                                            <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto"  required>
+                                            <input type="text" class="form-control" id="monto" placeholder="Ingrese el monto"  required>
                                         </label>
                                     </div>
                                     <div class="p-2 ">
@@ -134,8 +136,6 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <!-- Sweet Alert Script -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
-    <!-- Marquee -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/marquee.js/marquee.min.js"></script> -->
     <!-- Mis Scripts -->
     <script src="./js/condiciones.js"></script>
     <script src="./js/info.js"></script>

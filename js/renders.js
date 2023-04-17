@@ -1,10 +1,5 @@
 //------------------------------------------------------------------------
 //Renders
-/* const info = JSON.parse(localStorage.getItem("info")) || []; */
-
-/* function cargarInfoLS() {
-  return JSON.parse(localStorage.getItem("info")) || [];
-} */
 
 function renderResultados() {
   const info = cargarInfoLS();

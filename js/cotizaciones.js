@@ -1,4 +1,4 @@
-let dolarInfoDiv = document.getElementById("cotizaciones");
+const dolarInfoDiv = document.getElementById("cotizaciones");
 
 // Función asincrona para obtener la información del dólar con una solicitud GET a la API de DolarSi
 async function getDolarInfo() {
@@ -28,9 +28,7 @@ async function getDolarInfo() {
 
   let salida = `<div class=" lead"><marquee>`;
   for (let i = 0; i < ticker.length - 1; i++) {
-    salida += `${ticker[i].nombre} --> Compra $ ${ticker[i].compra} / Venta $ ${
-      ticker[i].venta
-    } / Var. ${ticker[i].variacion} % - `;
+    salida += `${ticker[i].nombre} --> Compra $ ${ticker[i].compra} / Venta $ ${ticker[i].venta} / Var. ${ticker[i].variacion} %  -  `;
   }
   salida += `Riesgo País: ${ticker[3].compra} puntos.</marquee></div>`;
   dolarInfoDiv.innerHTML = salida;
