@@ -1,34 +1,43 @@
 # Banco Mónaco
 <div id = "header" align = "center">  
-  <img src="https://github.com/MeLlamoLeandro/BancoMonaco/blob/master/img/logo2-removebg-preview?raw=true" width="100"/>
+  <img src="https://mellamoleandro.github.io/ProyectoFinalGiffoni//blob/master/img/logo2-removebg-preview?raw=true" width="100"/>
+  <img src="  blob/master/img/logo2-removebg-preview?raw=true" width="100"/>
 </div>
 
 ## Descripción:
 
 Proyecto final del curso JavaScript de CoderHouse, modelo de sitio web de una entidad bancaria llamada "Banco Monaco", donde se puede simular un prestamo personal y solicitarlo Online.
 
-Para eso el metodo fetch para para cargar un JSON local (condiciones.json) con las condiciones creditcias que coniciden con el mercado actual (plazo y tasa).
+Para realizar este proyecto en Javascript se empleo el uso de lo siguiente:
+<div>
+  <ul>
+    <il>Ciclos e iteraciones</il>
+    <il>Funciones</il>
+    <il>Objetos</il>
+    <il>Arrays</il>
+    <il>Funciones de orden superior</il>
+    <il>DOM y Control de Eventos</il>
+    <il>Local Storage y JSON(uso de metodos setItem, stringify, getItem, fetch, then y catch para administrar informacion almacenada localmente en un archivo JSON)</il>
+    <il> Operadores avanzados</il>
+    <il>Librerias varias:</il>
+      <ul>
+        <i>Luxon</il>
+        <i>SweetAlert2</il>
+      </ul>
+    <il>Acceso informacion externa utilizando async-await sobre una API(DolarSI)</il>
+  </ul>
+</div>
 
-aplico metodos de array, objetos, almacenamiento en el LocalStorage
-
-utilizo las siguentes librerias:
-- Luxon para gestionar las fechas de la simulacion.
-- SweetAlert2 para las alertas de flujo.
-- API DolarSI para mostrar los ticker de cotizaciones.
-
-[10:46, 17/4/2023] Lea:  metí como 3 librerias, una API y un JSON local
-[10:48, 17/4/2023] Lea: ahi use fetch, then, catch, async-await
-
+## PENDIENTES
 configurar post y clave
 resetear formulario
 redactar readme
-pasar publico,
-deploy en github
+
 
 
 ## Despliegue 📦
 
-https://mellamoleandro.github.io/BancoMonaco/
+https://mellamoleandro.github.io/ProyectoFinalGiffoni/
 
 ## Construido con 🛠️
 
@@ -42,7 +51,7 @@ https://mellamoleandro.github.io/BancoMonaco/
  
 ## Autor ✒️
 
-* **Leandro Giffoni** - *Diseño wireframe, desarrollo web, multimedia y SEO* - [MeLlamoLeandro](https://github.com/MeLlamoLeandro)
+* **Leandro Giffoni** - *Diseño wireframe, desarrollo web y multimedia* - [MeLlamoLeandro](https://github.com/MeLlamoLeandro)
 
 ## Agradecimientos 🎁
 
