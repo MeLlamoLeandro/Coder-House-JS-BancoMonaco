@@ -61,6 +61,7 @@ function borrarSolicitar() {
   localStorage.removeItem("pagos");
   localStorage.removeItem("info");
   cardInfo.innerHTML="";
+  inputInfoOculta.value="";
 }
 
 
@@ -87,7 +88,7 @@ function borrarSolicitar() {
 async function alertaEnvio(event) {
   event.preventDefault();
   Swal.fire({
-    timer:3000,
+    timer:5000,
     icon: "success",
     title: "Tu solicitud ha sido enviada",
     text: "Pronto nos contactaremos, muchas gracias!",
