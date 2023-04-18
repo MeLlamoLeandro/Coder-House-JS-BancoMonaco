@@ -60,8 +60,8 @@ function credSelect() {
 function borrarSolicitar() {
   localStorage.removeItem("pagos");
   localStorage.removeItem("info");
-  cardInfo.innerHTML="";
-  inputInfoOculta.value="";
+  cardInfo.innerHTML="Crédito sin simular";
+  inputInfoOculta.value="Crédito sin simular";
 }
 
 
