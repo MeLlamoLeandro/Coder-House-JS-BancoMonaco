@@ -74,6 +74,7 @@ function borrarSolicitar() {
         event.stopPropagation()
       }else { 
         await alertaEnvio(event) //uso await para esperar el cierre de la Alerta de Envio
+        form.submit()
       }
       form.classList.add('was-validated')
       
