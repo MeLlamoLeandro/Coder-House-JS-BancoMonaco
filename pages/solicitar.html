@@ -86,14 +86,14 @@
                   <div class="row g-3">
                     <div class="col-sm-6">
                       <label for="apellido" class="form-label">Apellido</label>
-                      <input type="text" class="form-control" id="apellido" placeholder="Ingresá el apellido" value="" required>
+                      <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Ingresá el apellido" value="" required>
                       <div class="invalid-feedback">
                         Ingresa el apellido.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="nombre" class="form-label">Nombre</label>
-                      <input type="text" class="form-control" id="nombre" placeholder="Ingresá el nombre" value="" required>
+                      <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingresá el nombre" value="" required>
                       <div class="invalid-feedback">
                         Ingresa el nombre.
                       </div>
@@ -101,7 +101,7 @@
 
                     <div class="col-md-3">
                       <label for="tipoDoc" class="form-label">Tipo</label>
-                      <select class="form-select" id="tipoDoc" required>
+                      <select class="form-select" name="tipoDoc" id="tipoDoc" required>
                         <option value="">Tipo</option>
                         <option value="1">DNI</option>
                         <option value="2">CI</option>
@@ -112,14 +112,14 @@
                     </div>
                     <div class="col-md-3">
                       <label for="documento" class="form-label">Documento</label>
-                      <input type="number" class="form-control" id="documento" placeholder="Ingresá el número" required>
+                      <input type="number" name="documento" class="form-control" id="documento" placeholder="Ingresá el número" required>
                       <div class="invalid-feedback">
                         Ingresá el número.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="fecNac" class="form-label">Fecha de Nacimiento</label>
-                      <input type="date" class="form-control" id="fecNac" placeholder="Ingresá la fecha (DD/MM/AAAA)" value="" required>
+                      <input type="date" class="form-control" name="fecNac" id="fecNac" placeholder="Ingresá la fecha (DD/MM/AAAA)" value="" required>
                       <div class="invalid-feedback">
                         Ingresá la fecha (DD/MM/AAAA).
                       </div>
@@ -135,14 +135,14 @@
 
                     <div class="col-sm-6">
                       <label for="tel" class="form-label">Teléfono</label>
-                      <input type="number" class="form-control" id="tel" placeholder="Ingresá el teléfono (11 44445555)" required>
+                      <input type="number" name="tel" class="form-control" id="tel" placeholder="Ingresá el teléfono (11 44445555)" required>
                       <div class="invalid-feedback">
                         Ingresá el teléfono.
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label for="cuil" class="form-label">CUIL</label>
-                      <input type="number" class="form-control" id="cuil" placeholder="Ingresá el CUIL (11-11111111-1)" required>
+                      <input type="number" name="cuil" class="form-control" id="cuil" placeholder="Ingresá el CUIL (11-11111111-1)" required>
                       <div class="invalid-feedback">
                         Ingresá el CUIL.
                       </div>
@@ -150,7 +150,7 @@
 
                     <div class="col-md-3">
                       <label for="genero" class="form-label">Género</label>
-                      <select class="form-select" id="genero" required>
+                      <select class="form-select" name="genero" id="genero" required>
                         <option value="">Seleccione</option>
                         <option value="f">Femenino</option>
                         <option value="m">Masculino</option>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-md-3">
                       <label for="estCivil" class="form-label">Estado Civil</label>
-                      <select class="form-select" id="estCivil" required>
+                      <select class="form-select" name="estCivil" id="estCivil" required>
                         <option value="">Seleccione</option>
                         <option value="Casado C-Comu Bienes">Casado C/Comu Bienes</option>                          
                         <option value="Casado C-Sepa Bienes">Casado C/Sepa Bienes</option>                          
@@ -171,7 +171,7 @@
                     </div>
               <div class="col-md-6">
                 <label for="ingreso" class="form-label">Ingresos Netos</label>
-                <input type="number" class="form-control" id="ingreso" placeholder="Ingresá el valor" required>
+                <input type="number" name="ingreso" class="form-control" id="ingreso" placeholder="Ingresá el valor" required>
                 <div class="invalid-feedback">
                   Ingresá el valor.
                 </div>
@@ -179,11 +179,11 @@
 
               <hr class="my-2">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="checkSueldo">
+                <input type="checkbox" name="checkSueldo" class="form-check-input" id="checkSueldo">
                 <label class="form-check-label" for="checkSueldo">Quiero acreditar mi sueldo</label>
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="checkCliente">
+                <input type="checkbox" name="checkCliente" class="form-check-input" id="checkCliente">
                 <label class="form-check-label" for="checkCliente">Soy cliente del banco</label>
               </div>
               <hr class="my-2">
