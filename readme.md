@@ -34,7 +34,10 @@ https://astonishing-llama-1a04b6.netlify.app/
 </div>
  
  ## Capturas 📷
- 
+ <div id = "header" align = "center">  
+  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura1.png?raw=true"  height="50%" />
+  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura2.png?raw=true"  height="50%" />
+</div>
  
  
 ## Autor ✒️
