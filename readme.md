@@ -17,7 +17,7 @@ Para realizar este proyecto en Javascript se empleo el uso de lo siguiente:
 * Local Storage y JSON(uso de metodos setItem, stringify, getItem, fetch, then y catch para administrar informacion almacenada localmente en un archivo JSON)</il>
 * Operadores avanzados
 * Librerias varias: Luxon , SweetAlert2, Formsubmit
-* Acceso informacion externa utilizando async-await sobre una AP I(DolarSI).
+* Acceso informacion externa utilizando async-await sobre una API (DolarSI).
 
 ## Despliegue 📦
 
