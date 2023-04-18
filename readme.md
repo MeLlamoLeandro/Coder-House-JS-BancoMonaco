@@ -1,6 +1,6 @@
 # Proyecto Final - Java Script - Simulador de Prestamos
 <div id = "header" align = "center">  
-  <img src="https://mellamoleandro.github.io/ProyectoFinalGiffoni/img/logo2-removebg-preview.png?raw=true"  height="100%" />
+  <img src="https://astonishing-llama-1a04b6.netlify.app/img/logo2-removebg-preview.png?raw=true"  height="100%" />
 </div>
 
 ## Descripción:
@@ -19,16 +19,9 @@ Para realizar este proyecto en Javascript se empleo el uso de lo siguiente:
 * Librerias varias: Luxon , SweetAlert2, Formsubmit
 * Acceso informacion externa utilizando async-await sobre una AP I(DolarSI).
 
-## PENDIENTES
-configurar post y clave
-resetear formulario
-redactar readme
-
-
-
 ## Despliegue 📦
 
-https://mellamoleandro.github.io/ProyectoFinalGiffoni/
+https://astonishing-llama-1a04b6.netlify.app/
 
 ## Construido con 🛠️
 
