@@ -1,8 +1,9 @@
 const info = cargarInfoLS();
 let cardInfo = document.getElementById("credSelect");
+let inputInfoOculta = document.getElementById("infoOculta");
 
 function credSelect() {
-  const info = cargarInfoLS();
+  /* const info = cargarInfoLS(); */
   if (info == "") {
     salida = `<p class="text-danger">Crédito sin simular</p>`;
   } else {
@@ -59,7 +60,7 @@ function credSelect() {
 function borrarSolicitar() {
   localStorage.removeItem("pagos");
   localStorage.removeItem("info");
-  credSelect();
+  cardInfo.innerHTML="";
 }
 
 
@@ -72,9 +73,9 @@ function borrarSolicitar() {
       if (!form.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
-      }else { 
+      }else {       
         await alertaEnvio(event) //uso await para esperar el cierre de la Alerta de Envio
-        form.submit()
+        await form.submit()
       }
       form.classList.add('was-validated')
       
@@ -86,6 +87,7 @@ function borrarSolicitar() {
 async function alertaEnvio(event) {
   event.preventDefault();
   Swal.fire({
+    timer:3000,
     icon: "success",
     title: "Tu solicitud ha sido enviada",
     text: "Pronto nos contactaremos, muchas gracias!",
@@ -93,4 +95,11 @@ async function alertaEnvio(event) {
   });
 }
 
+
+function infoOculta() {
+  inputInfoOculta.value =  `monto: ${info.monto}, plazo: ${info.plazo}, tna: ${info.tna}, tea: ${info.tea.toFixed(2)}, tem: ${info.tem.toFixed(2)}`;
+}
+
+
 credSelect();
+info != ""  && infoOculta(); //solo envia por Metodo POST la informacion si existe la simulacion
