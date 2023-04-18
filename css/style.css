@@ -12,6 +12,12 @@ body,main,footer {
   overflow-x: hidden;
 }
 
+/*elimino arrows del input*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
 /* Boton volverArribaBtn*/
 .scroll-up-btn {
   position: fixed;
