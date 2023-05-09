@@ -1,6 +1,6 @@
 # Proyecto Final - Java Script - Simulador de Prestamos
 <div id = "header" align = "center">  
-  <img src="https://astonishing-llama-1a04b6.netlify.app/img/logo2-removebg-preview.png?raw=true"  height="100%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/logo2-removebg-preview.png?raw=true"  height="100%" />
 </div>
 
 ## Descripción:
@@ -21,7 +21,7 @@ Para realizar este proyecto en Javascript se empleo el uso de lo siguiente:
 
 ## Despliegue 📦
 
-https://astonishing-llama-1a04b6.netlify.app/
+https://bancomonaco-simulador.netlify.app/
 
 ## Construido con 🛠️
 
