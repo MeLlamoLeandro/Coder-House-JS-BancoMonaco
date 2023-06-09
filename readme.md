@@ -35,10 +35,10 @@ https://bancomonaco-simulador.netlify.app/
  
  ## Capturas 📷
  <div id = "header" align = "center">  
-  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura1-min.png?raw=true"  height="50%" />
-  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura2-min.png?raw=true"  height="50%" />
-  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura3-min.png?raw=true"  height="50%" />
-  <img src="https://astonishing-llama-1a04b6.netlify.app/img/captura4-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura1-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura2-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura3-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura4-min.png?raw=true"  height="50%" />
 </div>
  
  
