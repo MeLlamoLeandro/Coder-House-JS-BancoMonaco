@@ -48,6 +48,6 @@ https://bancomonaco-simulador.netlify.app/
 
 ## Agradecimientos 🎁
 
-* Muchas gracias a [Luciana](https://github.com/LucianaGarro) y a [Javier](https://github.com/JavierVeron), excelentes profesores, por todo lo brindado tanto en conocimiento y apoyo 📢.
+* Muchas gracias a [Javier](https://github.com/JavierVeron), gran profesor, por todo lo brindado tanto en conocimiento y apoyo 📢.
 
 * Muchas gracias a Ian Redzio tutor del proyecto que acompaño con correcciones y sugerencias a lo largo de las entregas parciales.
