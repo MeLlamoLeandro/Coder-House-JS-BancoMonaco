@@ -51,3 +51,7 @@ https://bancomonaco-simulador.netlify.app/
 * Muchas gracias a [Javier](https://github.com/JavierVeron), gran profesor, por todo lo brindado tanto en conocimiento y apoyo 📢.
 
 * Muchas gracias a Ian Redzio tutor del proyecto que acompaño con correcciones y sugerencias a lo largo de las entregas parciales.
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más información.
