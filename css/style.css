@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Flex', sans-serif;
+    text-decoration: none !important;
+}
+
+body,main,footer {
+  overflow-x: hidden;
+}
+
+/*elimino arrows del input*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+/* Boton volverArribaBtn*/
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  z-index: 9999;
+  font-size: 50px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease; }
+
+.scroll-up-btn.mostrar {
+  bottom: 100px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-up-btn:hover {
+  color:#696969!important;
+}
+
+.footer-text__disclaimer{
+  font-size: 10px !important;
+}

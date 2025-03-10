@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Mónaco Préstamos Personales | ¡Sacá tu próximo Préstamo Personal acá!</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body style="background-color: rgba(44, 41, 41, 0.116);">
+    <!-- header -->
+    <header>
+        <div class="container-fluid  fixed-top bg-dark" style="color: #1c1c1d" data-bs-theme="dark">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.html">
+                       <img src="../img/logo2-removebg-preview.png" alt="Logo-Banco-Monaco" width="40%" height="40%" class="d-inline-block align-text-top img-fluid d-none d-md-inline-block">
+                        <img src="../img/logo-removebg-preview.png" alt="Logo-Banco-Monaco" width="40%" height="40%" class="d-md-none align-text-top img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <div class="navbar-nav">
+                            <a class="nav-link"  href="../index.html">Home</a>
+                            <a class="nav-link" href="#">Personas</a>
+                            <a class="nav-link" href="#">Institucional</a>
+                            <a class="nav-link me-md-4" href="#">Turnos</a>
+                            <div><a href="#" class="btn btn-danger">Home Banking</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div id="cotizaciones" class="row bg-light d-flex justify-content-center"></div>
+        </div>
+    </header>
+<!-- main solcitar -->
+<main>
+    <div class="container-fluid pt-5" style="margin-top:60px;">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="d-block justify-content-center align-items-center m-4 ">
+                    <h2 class="text-center"><span style="color:black;">¡Accedé a un préstamo 100% online!</span></h2>
+                    <div class="d-flex justify-content-center align-items-center"  >
+                        <img src="../img/Imagen1-removebg-preview.png" alt="" style="width: 500px; height: 155px; border-width: 0px; border-style: solid;" ></div>
+                    <ul>
+                        <li>Para remodelar o equipar tu casa, emprender un negocio o lo que te propongas.¡Concretá tu proyecto con<strong> la financiación más conveniente!</strong></li>
+                        <li>Comenzá a disfrutar de tu préstamo ahora y pagalo <strong>en hasta 96 cuotas.</strong></li>
+                        <li>La solicitud es<strong> 100% online</strong>, y se acredita inmediatamente. Además, definís el monto y el plazo que más te convenga.</li>
+                        <li>Tenés la posibilidad de <strong>cancelarlo anticipadamente</strong> cuando quieras, en forma total o parcial.</li>
+                    </ul>            
+                    <div class="text-center"><strong>¡Completá el formulario a continuación y pedilo ahora!</strong></div>    
+                </div>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+                <div class=""></div>
+                    <img src="../img/img_solicitar.jpg" alt="" style="border-radius: 10px; width: 470px; height: 339px; box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);" >
+            </div>
+        </div>
+    </div>        
+</main>
+<!-- inicio solicitud -->
+<section>
+    <div class="container">
+        <div class="row">               
+          <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-primary-emphasis">Crédito Seleccionado</span></h4>
+              <!-- Card Credito Seleccionado -->
+              <div id="credSelect"></div>
+              <!-- Borrar Info -->
+              <div class="card p-2">
+                <div class="input-group d-flex justify-content-center">
+                  <a  href="../index.html"  class="btn btn-outline-dark">Volver</a>
+                  <button  class="btn btn-outline-danger" onclick="borrarSolicitar()" title="Borrar Simulacion">Borrar</button>
+                </div>
+              </div>
+            </div>
+            <!-- Formulario de contacto -->
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">DATOS DE CONTACTO</h4>
+                <form id="formCtto" class="needs-validation" novalidate action="https://formsubmit.co/TU-Id-post" method="POST">
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label for="apellido" class="form-label">Apellido</label>
+                      <input type="text" name="apellido" class="form-control" id="apellido" placeholder="Ingresá el apellido" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresa el apellido.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingresá el nombre" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresa el nombre.
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="tipoDoc" class="form-label">Tipo</label>
+                      <select class="form-select" name="tipoDoc" id="tipoDoc" required>
+                        <option value="">Tipo</option>
+                        <option value="1">DNI</option>
+                        <option value="2">CI</option>
+                        <option value="3">LC</option>
+                        <option value="4">LE</option>
+                        <option value="5">PAS</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="documento" class="form-label">Documento</label>
+                      <input type="number" name="documento" class="form-control" id="documento" placeholder="Ingresá el número" required>
+                      <div class="invalid-feedback">
+                        Ingresá el número.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="fecNac" class="form-label">Fecha de Nacimiento</label>
+                      <input type="date" class="form-control" name="fecNac" id="fecNac" placeholder="Ingresá la fecha (DD/MM/AAAA)" value="" required>
+                      <div class="invalid-feedback">
+                        Ingresá la fecha (DD/MM/AAAA).
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" name="mail" class="form-control" id="email" placeholder="nombre@mail.com" required>
+                      <div class="invalid-feedback">
+                        Ingresá el email.
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <label for="tel" class="form-label">Teléfono</label>
+                      <input type="number" name="tel" class="form-control" id="tel" placeholder="Ingresá el teléfono (11 44445555)" required>
+                      <div class="invalid-feedback">
+                        Ingresá el teléfono.
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="cuil" class="form-label">CUIL</label>
+                      <input type="number" name="cuil" class="form-control" id="cuil" placeholder="Ingresá el CUIL (11-11111111-1)" required>
+                      <div class="invalid-feedback">
+                        Ingresá el CUIL.
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label for="genero" class="form-label">Género</label>
+                      <select class="form-select" name="genero" id="genero" required>
+                        <option value="">Seleccione</option>
+                        <option value="f">Femenino</option>
+                        <option value="m">Masculino</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="estCivil" class="form-label">Estado Civil</label>
+                      <select class="form-select" name="estCivil" id="estCivil" required>
+                        <option value="">Seleccione</option>
+                        <option value="Casado C-Comu Bienes">Casado C/Comu Bienes</option>                          
+                        <option value="Casado C-Sepa Bienes">Casado C/Sepa Bienes</option>                          
+                        <option value="Conviviente C-Pacto">Conviviente C/Pacto</option>                          
+                        <option value="Conviviente S-Pacto">Conviviente S/Pacto</option>                          
+                        <option value="Divorciado-a">Divorciado/a</option>                          
+                        <option value="Soltero-a">Soltero/a</option>                          
+                        <option value="Viudo-a">Viudo/a</option>                          
+                      </select>
+                    </div>
+              <div class="col-md-6">
+                <label for="ingreso" class="form-label">Ingresos Netos</label>
+                <input type="number" name="ingreso" class="form-control" id="ingreso" placeholder="Ingresá el valor" required>
+                <div class="invalid-feedback">
+                  Ingresá el valor.
+                </div>
+              </div>
+
+              <hr class="my-2">
+              <div class="form-check">
+                <input type="checkbox" name="checkSueldo" class="form-check-input" id="checkSueldo">
+                <label class="form-check-label" for="checkSueldo">Quiero acreditar mi sueldo</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" name="checkCliente" class="form-check-input" id="checkCliente">
+                <label class="form-check-label" for="checkCliente">Soy cliente del banco</label>
+              </div>
+              <hr class="my-2">
+              <div><input type="hidden" name="infoOculta" id="infoOculta"></div>
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://astonishing-llama-1a04b6.netlify.app">
+            <button class="w-100 btn btn-success btn-lg" type="submit">Enviar</button>                
+        </form>
+    </div>
+</div>  
+</section>
+<!-- inicio footer -->
+<footer class="container-fluid bg-dark py-3 text-white mt-3">
+    <div class="row">
+      <div class="copyright">
+        <span class="footer-text__disclaimer m-2"><span class="text-decoration-underline fs-6">Disclaimer:</span> Este sitio web forma parte de una tarea práctica para un curso en Coder House y fue creado con fines educativos. El contenido y las características se presentan para demostrar las habilidades adquiridas durante el curso. No debe considerarse como un sitio web real ni utilizarse con fines comerciales. La información puede no estar actualizada o ser precisa, y no se garantiza su disponibilidad o funcionalidad continua. El autor y Coder House no se hacen responsables de cualquier mal uso, daño o consecuencia derivados del uso de este sitio web. Úsalo únicamente con fines educativos y no tomes decisiones basadas en la información proporcionada.</span> 
+        <span>&copy 2023 - by <a  class="text-white" href="https://www.linkedin.com/in/leandro-giffoni/" target="_blank">Leandro Giffoni</a></span>
+    </div>
+    </div>
+</footer>
+<!-- Bootstrap Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- Luxon Script -->
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+<!-- Sweet Alert Script -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+<!-- Mis Scripts -->
+<script src="../js/info.js"></script>
+<script src="../js/solicitar.js"></script>
+<script src="../js/cotizaciones.js"></script>
+</body>
+</html>

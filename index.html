@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Mónaco - Simulador de Préstamos</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <!-- Bootstrap Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Sweet alerts styles -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body style="background-color: rgba(44, 41, 41, 0.116);">
+    <!-- boton volver arriba -->
+    <div class="scroll-up-btn text-black" title="Volver Arriba">
+        <i class="bi bi-arrow-up-square-fill"></i>
+    </div>
+    <!-- header -->
+    <header>
+        <div class="container-fluid  fixed-top  bg-dark " style="color: #1c1c1d" data-bs-theme="dark">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./img/logo2-removebg-preview.png" alt="Logo-Banco-Monaco" width="40%" height="40%" class="d-inline-block align-text-top img-fluid d-none d-md-inline-block">
+                        <img src="./img/logo-removebg-preview.png" alt="Logo-Banco-Monaco" width="40%" height="40%" class="d-md-none align-text-top img-fluid">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <div class="navbar-nav ">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="#">Personas</a>
+                            <a class="nav-link" href="#">Institucional</a>
+                            <a class="nav-link me-md-4" href="#">Turnos</a>
+                            <div><a href="#" class="btn btn-danger">Home Banking</a></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- marquesina con cotizaciones -->
+            <div id="cotizaciones" class="row bg-light d-flex justify-content-center"></div>
+        </div>
+        
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <div class="banner-img col-12 mt-5">
+                    <img src="./img/banner_1360x400.jpg" alt="banner" class="img-fluid w-100" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main -->
+    <main id="top" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="h1Logo m-4 p-4">
+                        <img class="img-fluid" src="./img/logo2-removebg-preview.png" alt="Banco Mónaco">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            
+        
+        <div class="container">      
+            <div class="row">
+                <div id="continua" class="col-12 m-4"></div>
+                <div class="col-12 col-md-6 mb-1 flex-column">
+                    <h3>¿Querés un préstamo con acreditación inmediata? Simulá el tuyo y solicitalo 100% online.</h3>
+                    <ul>
+                        <li>Para remodelar o equipar tu casa, emprender un negocio o lo que te propongas. ¡Concretá tu proyecto con <strong>la financiación más conveniente!  </strong></li>
+                        <li>Comenzá a disfrutar de tu préstamo ahora y pagalo <strong>en hasta 96 cuotas.</strong>  </li>
+                        <li>La solicitud es <strong>100% online</strong>, y se acredita inmediatamente. Además, definís el monto y el plazo que más te convenga.  </li>
+                        <li>Tenés la posibilidad de <strong>cancelarlo anticipadamente</strong> cuando quieras, en forma total o parcial.  </li>
+                    </ul>
+                    <div class="d-flex flex-column align-items-end">
+                        <h3><span style="color:#696969;">Si no sos cliente, pedilo acá.</span></h3>
+                        <a href="./pages/solicitar.html"  id="solicitar"   class="btn btn-success fw-bold">Solicitar</a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 bg-secondary mb-1 p-3 text-white" style="border-radius: 10px;">
+                    <h2 class="text-center">Simula tu Prestamo Personal</h2>
+                    <!-- Formulario de Simulador -->
+                    <form id="formSimulador">
+                        <div class="form-group m-1 p-1 align-items-start">
+                            <div class="form-group m-1 ">
+                                <div class="d-flex flex-column align-items-center justify-content-center flex-wrap">
+                                    <div class="p-2 ">
+                                        <label >Monto del préstamo:
+                                            <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto"  required>
+                                        </label>
+                                    </div>
+                                    <div class="p-2 ">
+                                        <label>Plazo:
+                                        <select class="form-select" aria-label="Default select example" id="selectCond" required>
+                                        </select>
+                                        </label>
+                                    </div>
+                                    <div class="p-2 m-2">
+                                        <button type="submit" class="btn btn-dark fw-bold" id="simular">--> Simular <--</button>
+                                    </div>
+                                    <div>
+                                        <p class="small">Tasa: Fija. Situación frente al IVA: Consumidor Final. Amortización: Sistema Francés.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div id='opcionesBuscar' class="col-12 m-4"></div>
+        <div id='infoPrestamo' class="col-11 mx-auto mb-2"></div>
+        <div id="resultado" class="col-11 mx-auto mb-2"></div>
+    
+    </main>
+    <!-- inicio footer -->
+    <footer class="container-fluid bg-dark py-3 text-white mt-3">
+        <div class="row">
+            <div class="copyright">
+                <span class="footer-text__disclaimer m-2"><span class="text-decoration-underline fs-6">Disclaimer:</span> Este sitio web forma parte de una tarea práctica para un curso en Coder House y fue creado con fines educativos. El contenido y las características se presentan para demostrar las habilidades adquiridas durante el curso. No debe considerarse como un sitio web real ni utilizarse con fines comerciales. La información puede no estar actualizada o ser precisa, y no se garantiza su disponibilidad o funcionalidad continua. El autor y Coder House no se hacen responsables de cualquier mal uso, daño o consecuencia derivados del uso de este sitio web. Úsalo únicamente con fines educativos y no tomes decisiones basadas en la información proporcionada.</span> 
+                <span>&copy 2023 - by <a  class="text-white" href="https://www.linkedin.com/in/leandro-giffoni/" target="_blank">Leandro Giffoni</a></span>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Luxon Script -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+    <!-- Sweet Alert Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+    <!-- Mis Scripts -->
+    <script src="./js/condiciones.js"></script>
+    <script src="./js/info.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/renders.js"></script>
+    <script src="./js/cotizaciones.js"></script>
+</body>
+</html>
